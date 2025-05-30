@@ -1,0 +1,10 @@
+runtime: php81
+
+handlers:
+- url: /
+  static_files: home.html
+  upload: home.html
+- url: /(.+)
+  static_files: \1
+  upload: .+  
+

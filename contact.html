@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hubungi Kami - NDA Fashion Hijab</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --bs-primary: #5D7CA9;
+      --bs-secondary: #7B95B9;
+      --bs-light-bg: #E2DAD6;
+      --bs-highlight-bg: #F5EDED;
+      --bs-text-dark: #333;
+    }
+
+    body {
+      background-color: var(--bs-light-bg);
+      color: var(--bs-text-dark);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .navbar {
+      background-color: var(--bs-primary);
+    }
+
+    .navbar .nav-link {
+      color: #fff !important;
+    }
+
+    .navbar .nav-link.active {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      background: var(--bs-highlight-bg);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgb(93 124 169 / 0.4);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .contact-info,
+    .contact-form {
+      flex: 1 1 400px;
+    }
+
+    .contact-info h2,
+    .contact-form h2 {
+      color: var(--bs-primary);
+      margin-bottom: 30px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+
+    .contact-info p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .contact-info ul {
+      list-style: none;
+      padding: 0;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    .contact-info li {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    .contact-info li i {
+      color: var(--bs-primary);
+      margin-right: 15px;
+      font-size: 1.3rem;
+      min-width: 30px;
+      text-align: center;
+    }
+
+    .contact-info a {
+      color: var(--bs-primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* Form styling */
+    form label {
+      font-weight: 600;
+      margin-bottom: 5px;
+      display: block;
+      color: var(--bs-primary);
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 10px 15px;
+      border: 2px solid var(--bs-secondary);
+      border-radius: 10px;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+      background-color: #fff;
+      color: #333;
+    }
+
+    form input:focus,
+    form textarea:focus {
+      outline: none;
+      border-color: var(--bs-primary);
+      box-shadow: 0 0 6px var(--bs-primary);
+    }
+
+    form textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    button.btn-submit {
+      background-color: var(--bs-primary);
+      color: white;
+      font-weight: 700;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 10px rgb(93 124 169 / 0.6);
+      width: 100%;
+      font-size: 1.1rem;
+    }
+
+    button.btn-submit:hover {
+      background-color: var(--bs-secondary);
+      box-shadow: 0 6px 14px rgb(123 149 185 / 0.8);
+    }
+
+    footer {
+      background-color: var(--bs-secondary);
+      color: white;
+      padding: 20px 0;
+    }
+
+    .social-icons a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .carousel img {
+        max-height: 250px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="logo.png" alt="Logo NDA" height="40" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">Tentang Kami</a></li>
+          <li class="nav-item"><a class="nav-link" href="katalog.html">Katalog</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contact.html">Hubungi Kami</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contact Section -->
+  <section class="contact-section" aria-label="Form Kontak dan Informasi">
+    <!-- Contact Info -->
+    <div class="contact-info" aria-labelledby="contact-info-heading">
+      <h2 id="contact-info-heading">Hubungi Kami</h2>
+      <p>Jika Anda memiliki pertanyaan, silakan hubungi kami melalui informasi berikut atau kirim pesan menggunakan
+        formulir.</p>
+      <ul>
+        <li><i class="fas fa-envelope"></i> Email: <a href="mailto:support@nda-fashion.com">support@nda-fashion.com</a>
+        </li>
+        <li><i class="fas fa-phone"></i> Telepon: <a href="tel:+621234567890">+62 123 4567 890</a></li>
+        <li><i class="fas fa-map-marker-alt"></i> Alamat: Jl. Hijab Indah No.123, Jakarta, Indonesia</li>
+        <li><i class="fab fa-instagram"></i> Instagram: <a href="https://www.instagram.com/nda.official.store/"
+            target="_blank" rel="noopener noreferrer">@nda.official.store</a></li>
+        <li><i class="fab fa-tiktok"></i> TikTok: <a href="https://www.tiktok.com/@nda_fashion" target="_blank"
+            rel="noopener noreferrer">@nda_fashion</a></li>
+        <li><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/1234567890" target="_blank"
+            rel="noopener noreferrer">Chat Sekarang</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-form" aria-labelledby="contact-form-heading">
+      <h2 id="contact-form-heading">Kirim Pesan</h2>
+      <form id="contactForm" onsubmit="sendEmail(event)" novalidate>
+        <label for="name">Nama Lengkap</label>
+        <input type="text" id="name" name="name" placeholder="Nama Anda" required minlength="3" />
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="email@domain.com" required />
+        <label for="message">Pesan</label>
+        <textarea id="message" name="message" placeholder="Tulis pesan Anda di sini..." required
+          minlength="10"></textarea>
+        <button type="submit" class="btn-submit">Kirim</button>
+      </form>
+      <div id="formFeedback" role="alert" style="margin-top:15px; font-weight:600;"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="container">
+      <p class="mb-2">&copy; 2025 NDA. All Rights Reserved.</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/nda.official.store/" target="_blank" rel="noopener noreferrer"><i
+            class="fab fa-instagram"></i></a>
+        <a href="https://shopee.co.id/nda.onlinestore?entryPoint=ShopBySearch&searchKeyword=nda%20online"
+          target="_blank" rel="noopener noreferrer"><i class="fas fa-store"></i></a>
+        <a href="https://www.tiktok.com/@nda_fashion" target="_blank" rel="noopener noreferrer"><i
+            class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" title="WhatsApp"><i
+            class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Form Validation & Mailto -->
+  <script>
+    function sendEmail(e) {
+      e.preventDefault();
+      const form = e.target;
+      const feedback = document.getElementById('formFeedback');
+      feedback.textContent = '';
+      feedback.style.color = 'red';
+
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+
+      if (name.length < 3) {
+        feedback.textContent = 'Nama harus minimal 3 karakter.';
+        form.name.focus();
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        feedback.textContent = 'Format email tidak valid.';
+        form.email.focus();
+        return;
+      }
+
+      if (message.length < 10) {
+        feedback.textContent = 'Pesan harus minimal 10 karakter.';
+        form.message.focus();
+        return;
+      }
+
+      // Membuat link mailto dengan subject dan body yang sudah di-encode
+      const mailtoLink = `mailto:tammamtanjung1405@gmail.com?subject=Pesan dari ${encodeURIComponent(name)}&body=${encodeURIComponent(message + '\n\nDari: ' + name + ' (' + email + ')')}`;
+
+      // Membuka aplikasi email default pengguna
+      window.location.href = mailtoLink;
+
+      feedback.style.color = 'green';
+      feedback.textContent = 'Aplikasi email Anda akan terbuka untuk mengirim pesan.';
+      form.reset();
+    }
+  </script>
+</body>
+
+</html>
