@@ -18,7 +18,6 @@
       --primary-color: #5D7CA9;
       --secondary-color: #7B95B9;
       --primary-darker: #4a6489;
-      /* (BARU) Warna lebih gelap untuk gradient */
       --light-bg: #F5EDED;
       --highlight-bg: #FFFFFF;
       --grey-bg: #f8f9fa;
@@ -32,11 +31,7 @@
 
     /* Background Body */
     body {
-      background-image: url('Gambar/background-texture.png');
       background-color: var(--grey-bg);
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
       color: var(--text-dark);
       font-family: var(--body-font);
       padding-bottom: 80px;
@@ -73,70 +68,91 @@
     }
 
     /* ===========================================
-    (HEADER BARU) CSS HEADER ELEGAN
-    Menggantikan .page-header dan .page-header-solid
-  ===========================================
-  */
-    .page-header-elegant {
-      padding: 4.5rem 1.5rem 4rem 1.5rem;
-      /* Padding disesuaikan */
-      text-align: center;
-      color: white;
-
-      /* (ELEGAN) Menggunakan Gradient, bukan warna solid */
-      background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-darker) 100%);
-
-      border-radius: 0 0 var(--border-radius) var(--border-radius);
-      box-shadow: var(--shadow);
-      margin-bottom: 2.5rem;
+       (BARU) CSS HEADER DENGAN BACKGROUND IMAGE
+       Menggantikan header polos sebelumnya
+       =========================================== */
+    .catalog-header {
+      /* Menggunakan gambar bg_catalog.jpg sebagai background */
+      background: url('Gambar/bg_catalog.jpg') no-repeat center center;
+      background-size: cover;
       position: relative;
-      /* Untuk efek tambahan jika perlu */
-      overflow: hidden;
-      /* Memastikan gradient rapi */
+      padding: 120px 20px;
+      /* Tinggi header diperbesar */
+      color: white;
+      text-align: center;
+      margin-bottom: 40px;
+      /* Membuat sudut bawah melengkung sedikit */
+      border-radius: 0 0 20px 20px;
+      box-shadow: var(--shadow);
     }
 
-    .page-header-elegant .page-title {
+    /* Overlay Hitam Transparan agar teks terbaca */
+    .catalog-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      /* Opacity 0.5 */
+      border-radius: 0 0 20px 20px;
+    }
+
+    .catalog-header .container {
+      position: relative;
+      z-index: 2;
+      /* Agar teks berada di atas overlay */
+    }
+
+    .catalog-header .page-title {
       font-family: var(--heading-font);
-      font-size: 3.2rem;
-      /* Sedikit lebih besar */
+      font-size: 3.5rem;
       font-weight: 700;
-      margin: 0;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-      /* Efek bayangan halus */
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     }
 
-    .page-header-elegant .page-subtitle {
+    .catalog-header .page-subtitle {
       font-family: var(--body-font);
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 400;
-      max-width: 600px;
-      margin: 1rem auto 0 auto;
-      opacity: 0.9;
-      /* Sedikit transparan agar fokus ke judul */
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      color: #f0f0f0;
     }
-
-    /* --- Akhir CSS Header Baru --- */
-
 
     /* Filter Section */
     .filter-section {
-      padding: 40px 20px;
+      padding: 20px;
       background-color: var(--highlight-bg);
       border-radius: var(--border-radius);
-      /* (Tambahan) Samakan radiusnya */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      margin-top: -60px;
+      /* Efek menumpuk di atas header */
+      position: relative;
+      z-index: 3;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 40px;
     }
 
     .filter-bar {
       text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
     }
 
     .filter-btn {
       background-color: transparent;
       border: 1px solid var(--secondary-color);
       color: var(--secondary-color);
-      padding: 8px 20px;
-      margin: 5px;
+      padding: 8px 25px;
       border-radius: 50px;
       font-weight: 500;
       transition: all 0.3s ease;
@@ -151,27 +167,20 @@
       background-color: var(--primary-color);
       color: white;
       border-color: var(--primary-color);
+      box-shadow: 0 4px 10px rgba(93, 124, 169, 0.3);
     }
 
     /* Product Gallery */
     .product-gallery {
-      padding: 40px 20px;
-      background-color: transparent;
+      padding: 20px 0 40px;
     }
 
     .product-item {
       transition: opacity 0.4s ease, transform 0.4s ease;
-      transform: scale(1);
     }
 
     .product-item.hidden {
-      opacity: 0;
-      transform: scale(0.9);
-      transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s 0.5s, height 0s 0.5s, padding 0s 0.5s, margin 0s 0.5s;
-      visibility: hidden;
-      height: 0;
-      padding: 0 !important;
-      margin: 0 !important;
+      display: none;
     }
 
     .product-card-link {
@@ -179,10 +188,6 @@
       color: var(--text-dark);
       display: block;
       height: 100%;
-    }
-
-    .product-card-link:hover {
-      color: var(--text-dark);
     }
 
     .product-card {
@@ -196,33 +201,35 @@
     }
 
     .product-item:hover .product-card {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     }
 
     .product-card img {
-      aspect-ratio: 1 / 1.1;
+      aspect-ratio: 1 / 1.2;
       object-fit: cover;
     }
 
     .product-card .card-body {
-      padding: 1.25rem;
+      padding: 1.5rem;
       text-align: center;
     }
 
     .product-card .card-title {
       font-family: var(--heading-font);
-      font-size: 1.5rem;
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-dark);
     }
 
     .product-card .card-text {
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: #666;
     }
 
-    /* CSS untuk Bagian CTA */
+    /* CTA Section */
     .cta-section {
-      padding: 60px 20px;
+      padding: 80px 20px;
       background-color: var(--light-bg);
       margin-top: 40px;
       border-radius: var(--border-radius);
@@ -248,13 +255,14 @@
     .btn-cta {
       background-color: var(--primary-color);
       color: white;
-      padding: 12px 30px;
+      padding: 12px 35px;
       font-size: 1rem;
       font-weight: 600;
       border-radius: 50px;
       text-decoration: none;
       transition: all 0.3s ease;
       box-shadow: 0 4px 15px rgba(93, 124, 169, 0.4);
+      display: inline-block;
     }
 
     .btn-cta:hover {
@@ -269,13 +277,18 @@
       background-color: var(--secondary-color);
       color: var(--text-light);
       padding: 40px 0;
-      margin-top: 40px;
+      margin-top: 60px;
     }
 
     .social-icons a {
       color: white;
       margin: 0 12px;
       font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: var(--primary-color);
     }
 
     /* Navbar Bawah (Mobile) */
@@ -288,8 +301,9 @@
       border-top: 1px solid #eee;
       display: flex;
       justify-content: space-around;
-      padding: 10px 0;
+      padding: 12px 0;
       z-index: 1000;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
     }
 
     .bottom-nav-item {
@@ -301,7 +315,7 @@
     }
 
     .bottom-nav-item i {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       margin-bottom: 4px;
     }
 
@@ -315,7 +329,7 @@
       font-weight: 600;
     }
 
-    /* Media Queries (Responsive) */
+    /* Responsive */
     @media (min-width: 768px) {
       .bottom-nav {
         display: none;
@@ -331,33 +345,35 @@
         display: none;
       }
 
-      .page-header-elegant .page-title {
-        font-size: 2.2rem;
-        /* Perkecil judul di HP */
+      .catalog-header {
+        padding: 80px 15px;
       }
 
-      .page-header-elegant .page-subtitle {
+      .catalog-header .page-title {
+        font-size: 2.5rem;
+      }
+
+      .catalog-header .page-subtitle {
         font-size: 1rem;
-        /* Perkecil tagline di HP */
       }
 
-      .filter-btn {
-        padding: 6px 15px;
-        font-size: 0.9rem;
+      .filter-section {
+        margin-top: -40px;
+        margin-left: 15px;
+        margin-right: 15px;
+        padding: 15px;
       }
 
       .product-card .card-body {
-        padding: 0.75rem;
+        padding: 1rem;
       }
 
       .product-card .card-title {
-        font-size: 1rem;
-        margin-bottom: 0.25rem;
+        font-size: 1.1rem;
       }
 
-      .product-card .card-text {
-        font-size: 0.8rem;
-        line-height: 1.4;
+      .section {
+        padding: 60px 15px;
       }
     }
   </style>
@@ -365,9 +381,13 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light navbar-top">
-    <div class="container"><a class="navbar-brand" href="home.html"><img src="Gambar/1233.png" alt="Logo NDA"
-          height="40" /></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+    <div class="container">
+      <a class="navbar-brand" href="home.html">
+        <img src="Gambar/1233.png" alt="Logo NDA" height="40" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
@@ -379,104 +399,137 @@
     </div>
   </nav>
 
-  <header class="page-header-visual">
+  <header class="catalog-header">
     <div class="container">
       <h1 class="page-title">Katalog Produk</h1>
-      <p class="page-subtitle">Temukan inspirasi gaya Anda dari koleksi hijab premium kami yang dirancang untuk
-        kenyamanan dan keanggunan.</p>
+      <p class="page-subtitle">
+        Temukan inspirasi gaya Anda dari koleksi hijab premium kami yang dirancang untuk kenyamanan dan keanggunan dalam
+        setiap kesempatan.
+      </p>
     </div>
   </header>
-
+  <br>
   <main class="container">
     <section class="filter-section" id="product-list">
-      <div class="filter-bar"><button class="filter-btn active" data-filter="all">Semua</button><button
-          class="filter-btn" data-filter="segi-empat">Segi Empat</button><button class="filter-btn"
-          data-filter="pashmina">Pashmina</button><button class="filter-btn" data-filter="bergo">Bergo</button></div>
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">Semua</button>
+        <button class="filter-btn" data-filter="segi-empat">Segi Empat</button>
+        <button class="filter-btn" data-filter="pashmina">Pashmina</button>
+        <button class="filter-btn" data-filter="bergo">Bergo</button>
+      </div>
     </section>
 
-    <section class="product-gallery pt-0">
+    <section class="product-gallery">
       <div class="row g-4 justify-content-center">
-        <div class="col-lg-4 col-md-4 col-6 product-item" data-category="segi-empat"><a href="detail-parisvoal.html"
-            class="product-card-link">
-            <div class="card product-card"><img src="Gambar/Paris-Voal/1.png" alt="Hijab Paris Voal" />
+
+        <div class="col-lg-4 col-md-6 col-6 product-item" data-category="segi-empat">
+          <a href="detail-parisvoal.html" class="product-card-link">
+            <div class="card product-card">
+              <img src="Gambar/Paris-Voal/1.png" alt="Hijab Paris Voal" />
               <div class="card-body">
                 <h3 class="card-title">Paris Voal Premium</h3>
                 <p class="card-text">Elegan & mudah dibentuk.</p>
               </div>
             </div>
-          </a></div>
-        <div class="col-lg-4 col-md-4 col-6 product-item" data-category="segi-empat"><a href="detail-parisjepang.html"
-            class="product-card-link">
-            <div class="card product-card"><img src="Gambar/Paris-Japan/1.JPG" alt="Hijab Paris Jepang" />
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-6 product-item" data-category="segi-empat">
+          <a href="detail-parisjepang.html" class="product-card-link">
+            <div class="card product-card">
+              <img src="Gambar/Paris-Japan/1.JPG" alt="Hijab Paris Jepang" />
               <div class="card-body">
                 <h3 class="card-title">Paris Jepang Premium</h3>
                 <p class="card-text">Klasik & nyaman.</p>
               </div>
             </div>
-          </a></div>
-        <div class="col-lg-4 col-md-4 col-6 product-item" data-category="pashmina"><a href="detail-ceruti.html"
-            class="product-card-link">
-            <div class="card product-card"><img src="Gambar/Ceruti/1.jpg" alt="Hijab Pashmina Ceruti" />
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-6 product-item" data-category="pashmina">
+          <a href="detail-ceruti.html" class="product-card-link">
+            <div class="card product-card">
+              <img src="Gambar/Ceruti/1.jpg" alt="Hijab Pashmina Ceruti" />
               <div class="card-body">
                 <h3 class="card-title">Pashmina Ceruty Babydoll</h3>
                 <p class="card-text">Bahan jatuh & mewah.</p>
               </div>
             </div>
-          </a></div>
-        <div class="col-lg-4 col-md-4 col-6 product-item" data-category="pashmina"><a href="detail-arabianvoil.html"
-            class="product-card-link">
-            <div class="card product-card"><img src="Gambar/Arabian-voil/1.jpg" alt="Pashmina Arabian Voil" />
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-6 product-item" data-category="pashmina">
+          <a href="detail-arabianvoil.html" class="product-card-link">
+            <div class="card product-card">
+              <img src="Gambar/Arabian-voil/1.jpg" alt="Pashmina Arabian Voil" />
               <div class="card-body">
                 <h3 class="card-title">Pashmina Arabian Voile</h3>
                 <p class="card-text">Motif eksotis & bahan premium.</p>
               </div>
             </div>
-          </a></div>
-        <div class="col-lg-4 col-md-4 col-6 product-item" data-category="pashmina"><a href="detail-rayon.html"
-            class="product-card-link">
-            <div class="card product-card"><img src="Gambar/Basic-Vol1/1.jpg" alt="Pashmina Cotton Rayon" />
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-6 product-item" data-category="pashmina">
+          <a href="detail-rayon.html" class="product-card-link">
+            <div class="card product-card">
+              <img src="Gambar/Basic-Vol1/1.jpg" alt="Pashmina Cotton Rayon" />
               <div class="card-body">
                 <h3 class="card-title">Pashmina Cotton Rayon Vol 1</h3>
                 <p class="card-text">Adem untuk harian.</p>
               </div>
             </div>
-          </a></div>
-        <div class="col-lg-4 col-md-4 col-6 product-item" data-category="pashmina"><a href="detail-rayon-basic.html"
-            class="product-card-link">
-            <div class="card product-card"><img src="Gambar/Pashmina-Basic/1.JPG" alt="Pashmina Rayon Basic" />
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-6 product-item" data-category="pashmina">
+          <a href="detail-rayon-basic.html" class="product-card-link">
+            <div class="card product-card">
+              <img src="Gambar/Pashmina-Basic/1.JPG" alt="Pashmina Rayon Basic" />
               <div class="card-body">
                 <h3 class="card-title">Pashmina Rayon Basic Vol 2</h3>
                 <p class="card-text">Tekstur halus & nyaman.</p>
               </div>
             </div>
-          </a></div>
-        <div class="col-lg-4 col-md-4 col-6 product-item" data-category="pashmina"><a href="detail-rayon-oval.html"
-            class="product-card-link">
-            <div class="card product-card"><img src="Gambar/Pashmina-Oval/1.jpg" alt="Pashmina Rayon Oval" />
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-6 product-item" data-category="pashmina">
+          <a href="detail-rayon-oval.html" class="product-card-link">
+            <div class="card product-card">
+              <img src="Gambar/Pashmina-Oval/1.jpg" alt="Pashmina Rayon Oval" />
               <div class="card-body">
                 <h3 class="card-title">Pashmina Rayon Oval</h3>
                 <p class="card-text">Bentuk oval, flowy & adem.</p>
               </div>
             </div>
-          </a></div>
-        <div class="col-lg-4 col-md-4 col-6 product-item" data-category="bergo"><a href="detail-bergo-m.html"
-            class="product-card-link">
-            <div class="card product-card"><img src="Gambar/Bergo-M/1.jpg" alt="Bergo Sport Size M" />
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-6 product-item" data-category="bergo">
+          <a href="detail-bergo-m.html" class="product-card-link">
+            <div class="card product-card">
+              <img src="Gambar/Bergo-M/1.jpg" alt="Bergo Sport Size M" />
               <div class="card-body">
                 <h3 class="card-title">Bergo Sport Jersey (M)</h3>
                 <p class="card-text">Praktis & nyaman untuk olahraga.</p>
               </div>
             </div>
-          </a></div>
-        <div class="col-lg-4 col-md-4 col-6 product-item" data-category="bergo"><a href="detail-bergo-l.html"
-            class="product-card-link">
-            <div class="card product-card"><img src="Gambar/Bergo-L/1.JPG" alt="Bergo Sport Size L" />
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-6 product-item" data-category="bergo">
+          <a href="detail-bergo-l.html" class="product-card-link">
+            <div class="card product-card">
+              <img src="Gambar/Bergo-L/1.JPG" alt="Bergo Sport Size L" />
               <div class="card-body">
                 <h3 class="card-title">Bergo Sport Jersey (L)</h3>
                 <p class="card-text">Ukuran lebih besar, tetap nyaman.</p>
               </div>
             </div>
-          </a></div>
+          </a>
+        </div>
+
       </div>
     </section>
   </main>
@@ -497,15 +550,18 @@
     </div>
   </section>
 
-  <footer class="text-center mt-5">
+  <footer class="text-center">
     <div class="container">
       <p class="mb-3">© 2025 NDA Fashion Hijab. All Rights Reserved.</p>
-      <div class="social-icons"><a href="https://www.instagram.com/nda.official.store/" target="_blank"
-          aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="https://shopee.co.id/nda.onlinestore"
-          target="_blank" aria-label="Shopee"><i class="fas fa-store"></i></a><a
-          href="https://www.tiktok.com/@nda.official.store?_t=ZS-8zT46ku2l0L&_r=1" target="_blank"
-          aria-label="TikTok"><i class="fab fa-tiktok"></i></a><a href="https://wa.me/628568636423" target="_blank"
-          aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/nda.official.store/" target="_blank" aria-label="Instagram"><i
+            class="fab fa-instagram"></i></a>
+        <a href="https://shopee.co.id/nda.onlinestore" target="_blank" aria-label="Shopee"><i
+            class="fas fa-store"></i></a>
+        <a href="https://www.tiktok.com/@nda.official.store?_t=ZS-8zT46ku2l0L&_r=1" target="_blank"
+          aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/628568636423" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
     </div>
   </footer>
 
@@ -533,16 +589,25 @@
     document.addEventListener('DOMContentLoaded', function () {
       const filterButtons = document.querySelectorAll('.filter-btn');
       const productItems = document.querySelectorAll('.product-item');
+
       filterButtons.forEach(button => {
         button.addEventListener('click', function () {
+          // Remove active class from all buttons
           filterButtons.forEach(btn => btn.classList.remove('active'));
+          // Add active class to clicked button
           this.classList.add('active');
+
           const filterValue = this.getAttribute('data-filter');
+
           productItems.forEach(item => {
             const itemCategories = item.getAttribute('data-category');
+
             if (filterValue === 'all' || itemCategories.includes(filterValue)) {
+              // Show item
               item.classList.remove('hidden');
+              // Optional: Add fade-in animation if desired here
             } else {
+              // Hide item
               item.classList.add('hidden');
             }
           });
