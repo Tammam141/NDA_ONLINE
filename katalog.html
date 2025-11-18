@@ -4,131 +4,370 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Katalog Hijab - NDA Hijab</title>
+  <title>Katalog Hijab - NDA Fashion Hijab</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
   <style>
     :root {
-      --bs-primary: #5D7CA9;
-      --bs-secondary: #7B95B9;
-      --bs-light-bg: #E2DAD6;
-      --bs-highlight-bg: #F5EDED;
-      --bs-text-dark: #333;
+      --primary-color: #5D7CA9;
+      --secondary-color: #7B95B9;
+      --primary-darker: #4a6489;
+      /* (BARU) Warna lebih gelap untuk gradient */
+      --light-bg: #F5EDED;
+      --highlight-bg: #FFFFFF;
+      --grey-bg: #f8f9fa;
+      --text-dark: #333;
+      --text-light: #f8f9fa;
+      --heading-font: 'Playfair Display', serif;
+      --body-font: 'Poppins', sans-serif;
+      --border-radius: 12px;
+      --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
 
+    /* Background Body */
     body {
-      background-color: var(--bs-light-bg);
-      color: var(--bs-text-dark);
-      font-family: 'Segoe UI', sans-serif;
+      background-image: url('Gambar/background-texture.png');
+      background-color: var(--grey-bg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: var(--text-dark);
+      font-family: var(--body-font);
+      padding-bottom: 80px;
     }
 
-    .navbar {
-      background-color: var(--bs-primary);
+    /* Navbar Atas (Desktop) */
+    .navbar-top {
+      background-color: var(--highlight-bg);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
     }
 
-    .navbar .nav-link {
-      color: #fff !important;
-    }
-
-    .navbar .nav-link.active {
-      font-weight: bold;
-      text-decoration: underline;
-    }
-
-    .carousel img {
-      max-height: 500px;
-      object-fit: cover;
-      border-radius: 12px;
-    }
-
-    h2.text-center {
-      color: var(--bs-primary);
-      margin-top: 40px;
-      margin-bottom: 30px;
-    }
-
-    .gallery-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 24px;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .gallery-item {
-      width: 250px;
-      background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-      text-align: center;
-      padding: 16px;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: auto;
+    .navbar-top .nav-link {
+      color: var(--text-dark);
+      font-weight: 500;
+      transition: all 0.3s ease;
+      padding: 0.5rem 1rem;
       border-radius: 8px;
     }
 
-    .gallery-item h3 {
-      margin: 12px 0;
-      font-size: 18px;
-      color: var(--bs-primary);
+    .navbar-top .nav-link:hover {
+      color: var(--primary-color);
+      background-color: var(--grey-bg);
     }
 
-    .gallery-item button {
-      background-color: var(--bs-primary);
-      color: white;
-      border: none;
-      padding: 10px 16px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
+    .navbar-top .nav-link.active {
+      color: var(--primary-color) !important;
+      font-weight: 600;
+      background-color: rgba(93, 124, 169, 0.1);
     }
 
-    .gallery-item button:hover {
-      background-color: var(--bs-secondary);
-    }
-
-    footer {
-      background-color: var(--bs-secondary);
-      color: white;
-      padding: 20px 0;
-      margin-top: 40px;
+    /* ===========================================
+    (HEADER BARU) CSS HEADER ELEGAN
+    Menggantikan .page-header dan .page-header-solid
+  ===========================================
+  */
+    .page-header-elegant {
+      padding: 4.5rem 1.5rem 4rem 1.5rem;
+      /* Padding disesuaikan */
       text-align: center;
+      color: white;
+
+      /* (ELEGAN) Menggunakan Gradient, bukan warna solid */
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-darker) 100%);
+
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 2.5rem;
+      position: relative;
+      /* Untuk efek tambahan jika perlu */
+      overflow: hidden;
+      /* Memastikan gradient rapi */
+    }
+
+    .page-header-elegant .page-title {
+      font-family: var(--heading-font);
+      font-size: 3.2rem;
+      /* Sedikit lebih besar */
+      font-weight: 700;
+      margin: 0;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+      /* Efek bayangan halus */
+    }
+
+    .page-header-elegant .page-subtitle {
+      font-family: var(--body-font);
+      font-size: 1.1rem;
+      font-weight: 400;
+      max-width: 600px;
+      margin: 1rem auto 0 auto;
+      opacity: 0.9;
+      /* Sedikit transparan agar fokus ke judul */
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    /* --- Akhir CSS Header Baru --- */
+
+
+    /* Filter Section */
+    .filter-section {
+      padding: 40px 20px;
+      background-color: var(--highlight-bg);
+      border-radius: var(--border-radius);
+      /* (Tambahan) Samakan radiusnya */
+    }
+
+    .filter-bar {
+      text-align: center;
+    }
+
+    .filter-btn {
+      background-color: transparent;
+      border: 1px solid var(--secondary-color);
+      color: var(--secondary-color);
+      padding: 8px 20px;
+      margin: 5px;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover {
+      background-color: var(--secondary-color);
+      color: white;
+    }
+
+    .filter-btn.active {
+      background-color: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+    }
+
+    /* Product Gallery */
+    .product-gallery {
+      padding: 40px 20px;
+      background-color: transparent;
+    }
+
+    .product-item {
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      transform: scale(1);
+    }
+
+    .product-item.hidden {
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s 0.5s, height 0s 0.5s, padding 0s 0.5s, margin 0s 0.5s;
+      visibility: hidden;
+      height: 0;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    .product-card-link {
+      text-decoration: none;
+      color: var(--text-dark);
+      display: block;
+      height: 100%;
+    }
+
+    .product-card-link:hover {
+      color: var(--text-dark);
+    }
+
+    .product-card {
+      border: none;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+      background-color: var(--highlight-bg);
+    }
+
+    .product-item:hover .product-card {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-card img {
+      aspect-ratio: 1 / 1.1;
+      object-fit: cover;
+    }
+
+    .product-card .card-body {
+      padding: 1.25rem;
+      text-align: center;
+    }
+
+    .product-card .card-title {
+      font-family: var(--heading-font);
+      font-size: 1.5rem;
+    }
+
+    .product-card .card-text {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    /* CSS untuk Bagian CTA */
+    .cta-section {
+      padding: 60px 20px;
+      background-color: var(--light-bg);
+      margin-top: 40px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+    }
+
+    .cta-title {
+      font-family: var(--heading-font);
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .cta-subtitle {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-cta {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 12px 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(93, 124, 169, 0.4);
+    }
+
+    .btn-cta:hover {
+      background-color: var(--secondary-color);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(93, 124, 169, 0.6);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--secondary-color);
+      color: var(--text-light);
+      padding: 40px 0;
+      margin-top: 40px;
     }
 
     .social-icons a {
       color: white;
-      margin: 0 10px;
+      margin: 0 12px;
       font-size: 1.5rem;
+    }
+
+    /* Navbar Bawah (Mobile) */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: var(--highlight-bg);
+      border-top: 1px solid #eee;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      z-index: 1000;
+    }
+
+    .bottom-nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-decoration: none;
+      color: var(--secondary-color);
     }
 
-    .social-icons a:hover {
-      color: #e0eaf7;
-      text-shadow: 0 0 5px #fff;
+    .bottom-nav-item i {
+      font-size: 1.2rem;
+      margin-bottom: 4px;
     }
 
-    @media (max-width: 768px) {
-      .carousel img {
-        max-height: 250px;
+    .bottom-nav-item span {
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    .bottom-nav-item.active {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    /* Media Queries (Responsive) */
+    @media (min-width: 768px) {
+      .bottom-nav {
+        display: none;
+      }
+
+      body {
+        padding-bottom: 0;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .navbar-top {
+        display: none;
+      }
+
+      .page-header-elegant .page-title {
+        font-size: 2.2rem;
+        /* Perkecil judul di HP */
+      }
+
+      .page-header-elegant .page-subtitle {
+        font-size: 1rem;
+        /* Perkecil tagline di HP */
+      }
+
+      .filter-btn {
+        padding: 6px 15px;
+        font-size: 0.9rem;
+      }
+
+      .product-card .card-body {
+        padding: 0.75rem;
+      }
+
+      .product-card .card-title {
+        font-size: 1rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .product-card .card-text {
+        font-size: 0.8rem;
+        line-height: 1.4;
       }
     }
   </style>
 </head>
 
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="logo.png" alt="Logo NDA" height="40" />
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <nav class="navbar navbar-expand-lg navbar-light navbar-top">
+    <div class="container"><a class="navbar-brand" href="home.html"><img src="Gambar/1233.png" alt="Logo NDA"
+          height="40" /></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
@@ -140,73 +379,177 @@
     </div>
   </nav>
 
-  <!-- Carousel Bootstrap -->
-  <div id="hijabCarousel" class="carousel slide container mt-4" data-bs-ride="carousel">
-    <div class="carousel-inner rounded-3 shadow">
-      <div class="carousel-item active">
-        <img src="../Gambar/kia6.jpg" class="d-block w-100" alt="Hijab Paris Voal" />
-      </div>
-      <div class="carousel-item">
-        <img src="../Gambar/kia5.jpg" class="d-block w-100" alt="Hijab Pashmina Ceruti" />
-      </div>
-      <div class="carousel-item">
-        <img src="../Gambar/kia3.jpg" class="d-block w-100" alt="Hijab Kaos Rayon" />
-      </div>
-      <div class="carousel-item">
-        <img src="../Gambar/kia1.jpg" class="d-block w-100" alt="Hijab Paris Jepang" />
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#hijabCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Sebelumnya</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#hijabCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Selanjutnya</span>
-    </button>
-  </div>
-
-  <!-- Judul Katalog -->
-  <h2 class="text-center">Katalog Hijab NDA</h2>
-
-  <!-- Galeri Produk -->
-  <div class="gallery-container container">
-    <div class="gallery-item">
-      <img src="../Gambar/kia6.jpg" alt="Hijab Paris Voal" />
-      <h3>Hijab Paris Voal</h3>
-      <button onclick="window.location.href='detail-parisvoal.html'">Lihat Detail</button>
-    </div>
-    <div class="gallery-item">
-      <img src="../Gambar/kia5.jpg" alt="Hijab Pashmina Ceruti" />
-      <h3>Pashmina Ceruti</h3>
-      <button onclick="window.location.href='detail-ceruti.html'">Lihat Detail</button>
-    </div>
-    <div class="gallery-item">
-      <img src="../Gambar/kia1.jpg" alt="Hijab Paris Jepang" />
-      <h3>Paris Jepang</h3>
-      <button onclick="window.location.href='detail-parisjepang.html'">Lihat Detail</button>
-    </div>
-    <div class="gallery-item">
-      <img src="../Gambar/kia3.jpg" alt="Hijab Kaos Rayon" />
-      <h3>Kaos Rayon</h3>
-      <button onclick="window.location.href='detail-rayon.html'">Lihat Detail</button>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer>
+  <header class="page-header-visual">
     <div class="container">
-      <p>&copy; 2025 NDA. All Rights Reserved.</p>
-      <div class="social-icons">
-        <a href="https://www.instagram.com/nda.official.store/" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://shopee.co.id/nda.onlinestore" target="_blank"><i class="fas fa-store"></i></a>
-        <a href="https://www.tiktok.com/@nda_fashion" target="_blank"><i class="fab fa-tiktok"></i></a>
-        <a href="https://wa.me/1234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <h1 class="page-title">Katalog Produk</h1>
+      <p class="page-subtitle">Temukan inspirasi gaya Anda dari koleksi hijab premium kami yang dirancang untuk
+        kenyamanan dan keanggunan.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="filter-section" id="product-list">
+      <div class="filter-bar"><button class="filter-btn active" data-filter="all">Semua</button><button
+          class="filter-btn" data-filter="segi-empat">Segi Empat</button><button class="filter-btn"
+          data-filter="pashmina">Pashmina</button><button class="filter-btn" data-filter="bergo">Bergo</button></div>
+    </section>
+
+    <section class="product-gallery pt-0">
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-4 col-md-4 col-6 product-item" data-category="segi-empat"><a href="detail-parisvoal.html"
+            class="product-card-link">
+            <div class="card product-card"><img src="Gambar/Paris-Voal/1.png" alt="Hijab Paris Voal" />
+              <div class="card-body">
+                <h3 class="card-title">Paris Voal Premium</h3>
+                <p class="card-text">Elegan & mudah dibentuk.</p>
+              </div>
+            </div>
+          </a></div>
+        <div class="col-lg-4 col-md-4 col-6 product-item" data-category="segi-empat"><a href="detail-parisjepang.html"
+            class="product-card-link">
+            <div class="card product-card"><img src="Gambar/Paris-Japan/1.JPG" alt="Hijab Paris Jepang" />
+              <div class="card-body">
+                <h3 class="card-title">Paris Jepang Premium</h3>
+                <p class="card-text">Klasik & nyaman.</p>
+              </div>
+            </div>
+          </a></div>
+        <div class="col-lg-4 col-md-4 col-6 product-item" data-category="pashmina"><a href="detail-ceruti.html"
+            class="product-card-link">
+            <div class="card product-card"><img src="Gambar/Ceruti/1.jpg" alt="Hijab Pashmina Ceruti" />
+              <div class="card-body">
+                <h3 class="card-title">Pashmina Ceruty Babydoll</h3>
+                <p class="card-text">Bahan jatuh & mewah.</p>
+              </div>
+            </div>
+          </a></div>
+        <div class="col-lg-4 col-md-4 col-6 product-item" data-category="pashmina"><a href="detail-arabianvoil.html"
+            class="product-card-link">
+            <div class="card product-card"><img src="Gambar/Arabian-voil/1.jpg" alt="Pashmina Arabian Voil" />
+              <div class="card-body">
+                <h3 class="card-title">Pashmina Arabian Voile</h3>
+                <p class="card-text">Motif eksotis & bahan premium.</p>
+              </div>
+            </div>
+          </a></div>
+        <div class="col-lg-4 col-md-4 col-6 product-item" data-category="pashmina"><a href="detail-rayon.html"
+            class="product-card-link">
+            <div class="card product-card"><img src="Gambar/Basic-Vol1/1.jpg" alt="Pashmina Cotton Rayon" />
+              <div class="card-body">
+                <h3 class="card-title">Pashmina Cotton Rayon Vol 1</h3>
+                <p class="card-text">Adem untuk harian.</p>
+              </div>
+            </div>
+          </a></div>
+        <div class="col-lg-4 col-md-4 col-6 product-item" data-category="pashmina"><a href="detail-rayon-basic.html"
+            class="product-card-link">
+            <div class="card product-card"><img src="Gambar/Pashmina-Basic/1.JPG" alt="Pashmina Rayon Basic" />
+              <div class="card-body">
+                <h3 class="card-title">Pashmina Rayon Basic Vol 2</h3>
+                <p class="card-text">Tekstur halus & nyaman.</p>
+              </div>
+            </div>
+          </a></div>
+        <div class="col-lg-4 col-md-4 col-6 product-item" data-category="pashmina"><a href="detail-rayon-oval.html"
+            class="product-card-link">
+            <div class="card product-card"><img src="Gambar/Pashmina-Oval/1.jpg" alt="Pashmina Rayon Oval" />
+              <div class="card-body">
+                <h3 class="card-title">Pashmina Rayon Oval</h3>
+                <p class="card-text">Bentuk oval, flowy & adem.</p>
+              </div>
+            </div>
+          </a></div>
+        <div class="col-lg-4 col-md-4 col-6 product-item" data-category="bergo"><a href="detail-bergo-m.html"
+            class="product-card-link">
+            <div class="card product-card"><img src="Gambar/Bergo-M/1.jpg" alt="Bergo Sport Size M" />
+              <div class="card-body">
+                <h3 class="card-title">Bergo Sport Jersey (M)</h3>
+                <p class="card-text">Praktis & nyaman untuk olahraga.</p>
+              </div>
+            </div>
+          </a></div>
+        <div class="col-lg-4 col-md-4 col-6 product-item" data-category="bergo"><a href="detail-bergo-l.html"
+            class="product-card-link">
+            <div class="card product-card"><img src="Gambar/Bergo-L/1.JPG" alt="Bergo Sport Size L" />
+              <div class="card-body">
+                <h3 class="card-title">Bergo Sport Jersey (L)</h3>
+                <p class="card-text">Ukuran lebih besar, tetap nyaman.</p>
+              </div>
+            </div>
+          </a></div>
       </div>
+    </section>
+  </main>
+
+  <section class="cta-section">
+    <div class="container text-center">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <h2 class="cta-title">Tetap Terhubung Dengan Kami</h2>
+          <p class="cta-subtitle">
+            Dapatkan update koleksi terbaru, tips styling, dan promo eksklusif dengan mengikuti kami di media sosial.
+          </p>
+          <a href="https://www.instagram.com/nda.official.store/" target="_blank" class="btn btn-cta">
+            <i class="fab fa-instagram me-2"></i> Kunjungi Instagram Kami
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center mt-5">
+    <div class="container">
+      <p class="mb-3">© 2025 NDA Fashion Hijab. All Rights Reserved.</p>
+      <div class="social-icons"><a href="https://www.instagram.com/nda.official.store/" target="_blank"
+          aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="https://shopee.co.id/nda.onlinestore"
+          target="_blank" aria-label="Shopee"><i class="fas fa-store"></i></a><a
+          href="https://www.tiktok.com/@nda.official.store?_t=ZS-8zT46ku2l0L&_r=1" target="_blank"
+          aria-label="TikTok"><i class="fab fa-tiktok"></i></a><a href="https://wa.me/628568636423" target="_blank"
+          aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div>
     </div>
   </footer>
 
+  <div class="bottom-nav d-md-none">
+    <a href="home.html" class="bottom-nav-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="about.html" class="bottom-nav-item">
+      <i class="fas fa-info-circle"></i>
+      <span>About</span>
+    </a>
+    <a href="katalog.html" class="bottom-nav-item active">
+      <i class="fas fa-book-open"></i>
+      <span>Katalog</span>
+    </a>
+    <a href="contact.html" class="bottom-nav-item">
+      <i class="fas fa-phone"></i>
+      <span>Contact</span>
+    </a>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const productItems = document.querySelectorAll('.product-item');
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function () {
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          const filterValue = this.getAttribute('data-filter');
+          productItems.forEach(item => {
+            const itemCategories = item.getAttribute('data-category');
+            if (filterValue === 'all' || itemCategories.includes(filterValue)) {
+              item.classList.remove('hidden');
+            } else {
+              item.classList.add('hidden');
+            }
+          });
+        });
+      });
+    });
+  </script>
 </body>
 
 </html>
