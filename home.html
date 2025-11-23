@@ -150,10 +150,37 @@
       color: var(--primary-color);
     }
 
+    /* NEW: Minimalist Style for Catalogue CTA (similar to about section content) */
+    .catalogue-cta-simple {
+        background-color: var(--light-bg); /* Use light pink background for separation */
+        padding: 80px 20px;
+        text-align: center;
+    }
+
+    .catalogue-cta-simple h2 {
+        font-family: var(--heading-font);
+        color: var(--primary-color);
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .catalogue-cta-simple .lead {
+        font-size: 1.1rem;
+        color: #555;
+        max-width: 700px; 
+        margin: 0 auto 20px auto;
+    }
+    
     .btn-link-arrow {
       color: var(--primary-color);
       text-decoration: none;
       font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-link-arrow:hover {
+        color: var(--secondary-color);
+        text-decoration: underline;
     }
 
     /* About Snippet */
@@ -386,6 +413,14 @@
       .product-carousel-section {
         padding: 50px 15px;
       }
+      
+      .catalogue-cta-simple {
+        padding: 50px 15px;
+      }
+      
+      .catalogue-cta-simple h2 {
+        font-size: 1.8rem;
+      }
 
       .about-snippet-content {
         text-align: center;
@@ -542,6 +577,15 @@
       </div>
     </section>
 
+    <section class="catalogue-cta-simple fade-in">
+      <div class="container text-center">
+        <h2>Koleksi Hijab Premium</h2>
+        <p class="lead">
+          Temukan produk terbaik kami yang menjamin kenyamanan dan kualitas dalam setiap tampilan.
+        </p>
+        <a href="katalog.html" class="btn-link-arrow">Lihat Semua Katalog &rarr;</a>
+      </div>
+    </section>
     <section class="section about-section">
       <div class="container">
         <div class="row g-5 align-items-center">
