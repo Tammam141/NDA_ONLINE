@@ -2,8 +2,8 @@ runtime: php81
 
 handlers:
 - url: /
-  static_files: home.html
-  upload: home.html
+  static_files: landing.html
+  upload: landing.html
 - url: /(.+)
   static_files: \1
   upload: .+  

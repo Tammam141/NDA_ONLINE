@@ -152,25 +152,26 @@
 
     /* NEW: Minimalist Style for Catalogue CTA (similar to about section content) */
     .catalogue-cta-simple {
-        background-color: var(--light-bg); /* Use light pink background for separation */
-        padding: 80px 20px;
-        text-align: center;
+      background-color: var(--light-bg);
+      /* Use light pink background for separation */
+      padding: 80px 20px;
+      text-align: center;
     }
 
     .catalogue-cta-simple h2 {
-        font-family: var(--heading-font);
-        color: var(--primary-color);
-        font-size: 2.2rem;
-        margin-bottom: 1rem;
+      font-family: var(--heading-font);
+      color: var(--primary-color);
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
     }
 
     .catalogue-cta-simple .lead {
-        font-size: 1.1rem;
-        color: #555;
-        max-width: 700px; 
-        margin: 0 auto 20px auto;
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto 20px auto;
     }
-    
+
     .btn-link-arrow {
       color: var(--primary-color);
       text-decoration: none;
@@ -179,8 +180,8 @@
     }
 
     .btn-link-arrow:hover {
-        color: var(--secondary-color);
-        text-decoration: underline;
+      color: var(--secondary-color);
+      text-decoration: underline;
     }
 
     /* About Snippet */
@@ -270,6 +271,8 @@
       border-radius: var(--border-radius);
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
       height: 100%;
+      /* Tambahan untuk memastikan tinggi kartu seragam */
+      min-height: 200px;
     }
 
     .review-header {
@@ -412,14 +415,6 @@
 
       .product-carousel-section {
         padding: 50px 15px;
-      }
-      
-      .catalogue-cta-simple {
-        padding: 50px 15px;
-      }
-      
-      .catalogue-cta-simple h2 {
-        font-size: 1.8rem;
       }
 
       .about-snippet-content {
@@ -662,9 +657,14 @@
       <div class="container">
         <h2 class="section-title fade-in">Kata Mereka yang Sudah Merasakan kenyamanannya</h2>
         <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-indicators"><button type="button" data-bs-target="#testimonialCarousel"
-              data-bs-slide-to="0" class="active" aria-current="true"></button><button type="button"
-              data-bs-target="#testimonialCarousel" data-bs-slide-to="1"></button></div>
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active"
+              aria-current="true"></button>
+            <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="3"></button>
+            <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="4"></button>
+          </div>
           <div class="carousel-inner">
             <div class="carousel-item active">
               <div class="row g-4 justify-content-center">
@@ -696,6 +696,54 @@
                     </div>
                     <p class="review-text">“Pengiriman cepet banget! Warnanya juga sesuai ekspektasi, dusty pink-nya
                       cantik. Recommended.”</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-5">
+                  <div class="review-card">
+                    <div class="review-header">
+                      <div class="avatar"><i class="fas fa-user"></i></div>
+                      <div class="user-info"><span class="username">d*****t</span>
+                        <div class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                      </div>
+                    </div>
+                    <p class="review-text">“Jilbab Ceruty Babydoll ini jatuhnya bagus banget, mudah dibentuk, nggak licin. Bikin penampilan jadi anggun.”</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-5">
+                  <div class="review-card">
+                    <div class="review-header">
+                      <div class="avatar"><i class="fas fa-user"></i></div>
+                      <div class="user-info"><span class="username">r*****i</span>
+                        <div class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                      </div>
+                    </div>
+                    <p class="review-text">“Suka banget sama Pashmina Cotton Rayonnya, adem dipakai seharian buat kerja. Beli warna netral semua!”</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-5">
+                  <div class="review-card">
+                    <div class="review-header">
+                      <div class="avatar"><i class="fas fa-user"></i></div>
+                      <div class="user-info"><span class="username">s*****n</span>
+                        <div class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                      </div>
+                    </div>
+                    <p class="review-text">“Bergo Sport ukuran L-nya pas nutup dada. Bahannya tebal dan nggak nerawang. Puas!”</p>
                   </div>
                 </div>
               </div>
