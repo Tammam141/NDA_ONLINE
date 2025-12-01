@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Link NDA Fashion Hijab</title>
+    <link rel="website icon" href="Gambar/1233.png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,9 +54,9 @@
             /* Padding vertikal dikurangi dan diimbangi */
             padding: 20px 20px; 
             position: relative; 
-            background-image: url('Gambar/landing.jpg'); 
+            background-image: url('Gambar/welcome.jpg'); 
             background-size: cover;
-            background-position: center;
+            background-position: center top; /* PERBAIKAN BACKGROUND POSITION */
             background-repeat: no-repeat;
             color: var(--text-dark); 
             z-index: 1; 
@@ -171,15 +172,36 @@
             margin-bottom: 0.5rem!important;
         }
 
-        /* Media Query untuk Mobile Extreme (Responsiveness) */
+        /* MEDIA QUERY UNTUK MOBILE EXTREME (Penyesuaian untuk mengatasi "Terlalu Zoom") */
         @media (max-width: 400px) {
-            main { padding: 25px 10px; }
-            .logo-img { width: 85px; } /* Diperbesar sedikit di mobile */
-            .brand-name { font-size: 1.5rem; }
-            .tagline { font-size: 0.75rem; }
-            .link-list a { font-size: 1rem; }
-            .social-icons a { font-size: 1.2rem; margin: 0 8px; }
-            footer { padding: 15px 0; }
+            main { 
+                padding: 20px 10px;
+            }
+            .logo-img { 
+                width: 80px;
+            }
+            .brand-name { 
+                font-size: 1.35rem;
+            }
+            .tagline { 
+                font-size: 0.7rem;
+                margin-bottom: 10px;
+            }
+            .section-title { 
+                font-size: 0.9rem;
+                margin-top: 10px;
+                margin-bottom: 5px;
+            }
+            .link-list a { 
+                font-size: 0.95rem;
+            }
+            .social-icons a { 
+                font-size: 1.1rem;
+                margin: 0 6px;
+            }
+            footer { 
+                padding: 15px 0; 
+            }
         }
     </style>
 </head>
