@@ -30,12 +30,12 @@
     }
 
     body {
-      background-color: var(--light-bg);
-      color: var(--text-dark);
-      font-family: var(--body-font);
-      padding-bottom: 80px;
-      /* Ruang untuk navbar bawah */
-    }
+    /* background-color: var(--light-bg); <--- BARIS SEBELUMNYA (ini yang menyebabkan mengambang) */
+    background-color: var(--highlight-bg); /* BARU: Membuat latar belakang body putih agar navbar bawah menyatu */
+    color: var(--text-dark);
+    font-family: var(--body-font);
+    padding-bottom: 80px; /* Ruang untuk navbar bawah */
+}
 
     .fade-in {
       opacity: 0;
