@@ -20,7 +20,7 @@
       --secondary-color: #7B95B9;
       --light-bg: #F5EDED;
       /* Pink Muda */
-      --highlight-bg: #FFFFFF;
+      --highlight-bg: #F5EDED;
       /* Putih */
       --grey-bg: #f8f9fa;
       --text-dark: #333;
@@ -31,8 +31,9 @@
       --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
 
+    /* PERBAIKAN UTAMA: Mengubah latar belakang body menjadi putih (highlight-bg) */
     body {
-      background-color: var(--light-bg);
+      background-color: var(--highlight-bg); /* DIUBAH DARI var(--light-bg) */
       font-family: var(--body-font);
       color: var(--text-dark);
       padding-bottom: 80px;
@@ -92,7 +93,8 @@
     /* Kartu Kontak Utama */
     .contact-section {
       padding: 80px 20px;
-      background-color: var(--light-bg);
+      /* Background section ini akan tetap pink muda (light-bg) agar kontras dengan header dan kartu putih di dalamnya */
+      background-color: var(--light-bg); 
     }
 
     .contact-info-box {
