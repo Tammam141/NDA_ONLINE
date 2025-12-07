@@ -110,6 +110,31 @@
       object-position: center;
     }
 
+    /* NEW: Custom Video Embed Style */
+    .video-section {
+        padding: 60px 20px;
+        background-color: var(--highlight-bg);
+    }
+
+    .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* Rasio 16:9 untuk video (memastikan responsif) */
+        height: 0;
+        overflow: hidden;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        max-width: 900px;
+        margin: auto;
+    }
+
+    .video-wrapper video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
     /* Carousel Produk Baru */
     .product-carousel-section {
       padding: 80px 20px;
@@ -150,40 +175,29 @@
       font-size: 2.8rem;
       color: var(--primary-color);
     }
-
-    /* NEW: Minimalist Style for Catalogue CTA (similar to about section content) */
-    .catalogue-cta-simple {
-      background-color: var(--light-bg);
-      /* Use light pink background for separation */
-      padding: 80px 20px;
-      text-align: center;
+    
+    /* NEW: Large CTA Button Style */
+    .btn-large-primary {
+        background: var(--primary-color);
+        color: white;
+        border: 2px solid var(--primary-color);
+        padding: 15px 40px; /* Lebih besar */
+        font-size: 1.1rem; /* Lebih besar */
+        font-weight: 700;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        box-shadow: 0 6px 15px rgba(93, 124, 169, 0.5);
+        display: inline-block;
+        width: auto;
+        max-width: 300px;
+    }
+    .btn-large-primary:hover {
+        background: var(--secondary-color);
+        border-color: var(--secondary-color);
+        color: white;
+        transform: translateY(-3px);
     }
 
-    .catalogue-cta-simple h2 {
-      font-family: var(--heading-font);
-      color: var(--primary-color);
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
-    }
-
-    .catalogue-cta-simple .lead {
-      font-size: 1.1rem;
-      color: #555;
-      max-width: 700px;
-      margin: 0 auto 20px auto;
-    }
-
-    .btn-link-arrow {
-      color: var(--primary-color);
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    .btn-link-arrow:hover {
-      color: var(--secondary-color);
-      text-decoration: underline;
-    }
 
     /* About Snippet */
     .about-section {
@@ -405,6 +419,10 @@
       .section {
         padding: 50px 15px;
       }
+      
+      .video-section {
+        padding: 40px 15px;
+      }
 
       .section-title {
         font-size: 2rem;
@@ -544,8 +562,19 @@
       </div>
     </div>
   </header>
-
+  
+  <section class="video-section">
+    <div class="container text-center">
+      <div class="video-wrapper fade-in">
+        <video autoplay loop playsinline poster="">
+          <source src="Gambar/video3.mp4" type="video/mp4">
+          Mohon maaf, browser Anda tidak mendukung tag video.
+        </video>
+      </div>
+    </div>
+  </section>
   <main>
+    
     <section class="product-carousel-section">
       <div class="container">
         <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -579,16 +608,10 @@
             <span class="visually-hidden">Next</span>
           </button>
         </div>
-      </div>
-    </section>
-
-    <section class="catalogue-cta-simple fade-in">
-      <div class="container text-center">
-        <h2>Koleksi Hijab Premium</h2>
-        <p class="lead">
-          Temukan produk terbaik kami yang menjamin kenyamanan dan kualitas dalam setiap tampilan.
-        </p>
-        <a href="katalog.html" class="btn-link-arrow">Lihat Semua Katalog &rarr;</a>
+        
+        <div class="text-center mt-5 fade-in delay-2">
+            <a href="katalog.html" class="btn btn-large-primary">Lihat Semua Katalog &rarr;</a>
+        </div>
       </div>
     </section>
     <section class="section about-section">
