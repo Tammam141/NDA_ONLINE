@@ -263,48 +263,23 @@
       background-color: var(--highlight-bg);
       /* Ganti jadi putih */
     }
+/* Style BARU untuk Gambar Screenshot Testimonial */
+.testimonial-screenshot-img {
+    width: 100%;
+    /* Menggunakan 9:16 atau 3:4 agar terlihat seperti tangkapan layar vertikal */
+    aspect-ratio: 9/16; 
+    object-fit: contain; /* Pastikan gambar terlihat utuh di dalam area */
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Menambahkan bayangan untuk efek kartu */
+    margin: 15px 0; /* Memberi sedikit jarak */
+    background-color: var(--highlight-bg); /* Latar belakang putih jika screenshot tidak full */
+}
 
-    .review-card {
-      background-color: var(--grey-bg);
-      /* Ganti jadi abu-abu */
-      border: 1px solid #E2DAD6;
-      padding: 30px;
-      border-radius: var(--border-radius);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-      height: 100%;
-      /* Tambahan untuk memastikan tinggi kartu seragam */
-      min-height: 200px;
+@media (max-width: 767px) {
+    .testimonial-screenshot-img {
+        aspect-ratio: auto; /* Memungkinkan gambar menggunakan rasio aslinya di mobile */
     }
-
-    .review-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 15px;
-    }
-
-    .avatar {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      margin-right: 15px;
-      background-color: #f0f0f0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--secondary-color);
-    }
-
-    .username {
-      font-weight: 600;
-    }
-
-    .star-rating {
-      color: #FFC107;
-    }
-
-    .review-text {
-      color: #555;
-    }
+}
 
     /* Contact CTA */
     .contact-cta-section {
@@ -688,108 +663,69 @@
       </div>
     </section>
 
-    <section class="section testimoni">
-      <div class="container">
+  <section class="section testimoni">
+    <div class="container">
         <h2 class="section-title fade-in">Kata Mereka yang Sudah Merasakan kenyamanannya</h2>
         <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-indicators">
-            <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active"
-              aria-current="true"></button>
-            <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"></button>
-            <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"></button>
-            <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="3"></button>
-            <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="4"></button>
-          </div>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="row g-4 justify-content-center">
-                <div class="col-md-6 col-lg-5">
-                  <div class="review-card">
-                    <div class="review-header">
-                      <div class="avatar"><i class="fas fa-user"></i></div>
-                      <div class="user-info"><span class="username">a*****h</span>
-                        <div class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                      </div>
-                    </div>
-                    <p class="review-text">“Bahannya adem dan kualitasnya bagus. Ini udah langganan ke-3 kalinya, selalu
-                      puas.”</p>
-                  </div>
-                </div>
-              </div>
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active"
+                    aria-current="true"></button>
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="3"></button>
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="4"></button>
             </div>
-            <div class="carousel-item">
-              <div class="row g-4 justify-content-center">
-                <div class="col-md-6 col-lg-5">
-                  <div class="review-card">
-                    <div class="review-header">
-                      <div class="avatar"><i class="fas fa-user"></i></div>
-                      <div class="user-info"><span class="username">f*****h</span>
-                        <div class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                      </div>
+            <div class="carousel-inner">
+                
+                <div class="carousel-item active">
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-lg-5 col-md-6 col-12">
+                            <img src="Gambar/Komentar/1.jpg" alt="Testimoni Pelanggan 1: Bahan adem dan bagus"
+                                class="d-block w-100 testimonial-screenshot-img">
+                        </div>
                     </div>
-                    <p class="review-text">“Pengiriman cepet banget! Warnanya juga sesuai ekspektasi, dusty pink-nya
-                      cantik. Recommended.”</p>
-                  </div>
                 </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="row g-4 justify-content-center">
-                <div class="col-md-6 col-lg-5">
-                  <div class="review-card">
-                    <div class="review-header">
-                      <div class="avatar"><i class="fas fa-user"></i></div>
-                      <div class="user-info"><span class="username">d*****t</span>
-                        <div class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                      </div>
+
+                <div class="carousel-item">
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-lg-5 col-md-6 col-12">
+                            <img src="Gambar/Komentar/2.jpg" alt="Testimoni Pelanggan 2: Pengiriman cepat"
+                                class="d-block w-100 testimonial-screenshot-img">
+                        </div>
                     </div>
-                    <p class="review-text">“Jilbab Ceruty Babydoll ini jatuhnya bagus banget, mudah dibentuk, nggak
-                      licin. Bikin penampilan jadi anggun.”</p>
-                  </div>
                 </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="row g-4 justify-content-center">
-                <div class="col-md-6 col-lg-5">
-                  <div class="review-card">
-                    <div class="review-header">
-                      <div class="avatar"><i class="fas fa-user"></i></div>
-                      <div class="user-info"><span class="username">r*****i</span>
-                        <div class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                      </div>
+
+                <div class="carousel-item">
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-lg-5 col-md-6 col-12">
+                            <img src="Gambar/Komentar/3.jpg" alt="Testimoni Pelanggan 3: Mudah dibentuk dan anggun"
+                                class="d-block w-100 testimonial-screenshot-img">
+                        </div>
                     </div>
-                    <p class="review-text">“Suka banget sama Pashmina Cotton Rayonnya, adem dipakai seharian buat kerja.
-                      Beli warna netral semua!”</p>
-                  </div>
                 </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="row g-4 justify-content-center">
-                <div class="col-md-6 col-lg-5">
-                  <div class="review-card">
-                    <div class="review-header">
-                      <div class="avatar"><i class="fas fa-user"></i></div>
-                      <div class="user-info"><span class="username">s*****n</span>
-                        <div class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                      </div>
+
+                <div class="carousel-item">
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-lg-5 col-md-6 col-12">
+                            <img src="Gambar/Komentar/4.jpg" alt="Testimoni Pelanggan 4: Adem dipakai seharian"
+                                class="d-block w-100 testimonial-screenshot-img">
+                        </div>
                     </div>
-                    <p class="review-text">“Bergo Sport ukuran L-nya pas nutup dada. Bahannya tebal dan nggak nerawang.
-                      Puas!”</p>
-                  </div>
                 </div>
-              </div>
+
+                <div class="carousel-item">
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-lg-5 col-md-6 col-12">
+                            <img src="Gambar/Komentar/5.jpg" alt="Testimoni Pelanggan 5: Ukuran pas dan tidak nerawang"
+                                class="d-block w-100 testimonial-screenshot-img">
+                        </div>
+                    </div>
+                </div>
+
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
+            </div>
+    </div>
+</section>
 
     <section class="section contact-cta-section">
       <div class="container fade-in">
