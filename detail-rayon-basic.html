@@ -2,465 +2,398 @@
 <html lang="id">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Detail Pashmina Rayon Basic - NDA Fashion Hijab</title>
-    <link rel="website icon" href="Gambar/1233.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap"
-        rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Detail Pashmina Rayon Basic - NDA Fashion Hijab</title>
+  <link rel="website icon" href="Gambar/1233.png">
 
-    <style>
-        :root {
-            --primary-color: #5D7CA9;
-            --secondary-color: #7B95B9;
-            --light-bg: #FFFFFF;
-            --grey-bg: #f8f9fa;
-            --highlight-bg: #FFFFFF; /* Variabel untuk putih solid */
-            --text-dark: #333;
-            --text-light: #f8f9fa;
-            --heading-font: 'Playfair Display', serif;
-            --body-font: 'Poppins', sans-serif;
-            --border-radius: 12px;
-            --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        }
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-        body {
-            background-color: var(--light-bg);
-            font-family: var(--body-font);
-            color: var(--text-dark);
-            padding-bottom: 80px;
-        }
+  <style>
+    :root {
+      --primary-color: #5D7CA9;
+      --secondary-color: #7B95B9;
+      --light-bg: #F5EDED;
+      --white: #FFFFFF;
+      --heading-font: 'Playfair Display', serif;
+      --body-font: 'Poppins', sans-serif;
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
 
-        /* Navbar Atas (Desktop) */
-        .navbar-top {
-            background-color: var(--highlight-bg); /* Putih */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
-        }
+    body {
+      background-color: var(--white);
+      color: #444;
+      font-family: var(--body-font);
+      padding-bottom: 80px;
+    }
 
-        .navbar-top .nav-link {
-            color: var(--text-dark); /* Teks gelap */
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-        }
+    /* --- Navbar Styling --- */
+    .navbar-top {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+      padding: 0.8rem 0;
+    }
+    .nav-link {
+      font-weight: 500;
+      color: #555;
+      margin: 0 5px;
+      transition: all 0.3s;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--primary-color) !important;
+    }
 
-        .navbar-top .nav-link:hover {
-            color: var(--primary-color);
-            background-color: var(--grey-bg);
-        }
+    /* --- Product Detail Styling --- */
+    .product-detail-section {
+      padding: 60px 0;
+    }
 
-        .navbar-top .nav-link.active {
-            color: var(--primary-color) !important;
-            font-weight: 600;
-            background-color: rgba(93, 124, 169, 0.1);
-        }
+    /* Gallery Carousel */
+    .product-gallery-carousel {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+    }
 
-        .product-detail-section {
-            padding: 60px 0;
-        }
+    .carousel-item img {
+      width: 100%;
+      aspect-ratio: 1/1; /* Rasio kotak agar rapi */
+      object-fit: cover;
+    }
 
-        /* Carousel Styling */
-        .product-gallery-carousel {
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
+    /* Navigation Arrows for Carousel */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: rgba(0,0,0,0.3);
+        border-radius: 50%;
+        background-size: 50%;
+    }
 
-        .carousel-item img {
-            width: 100%;
-            aspect-ratio: 1/1;
-            object-fit: cover;
-        }
+    /* Product Info Area */
+    .product-info {
+      padding-left: 20px;
+    }
 
-        .product-info h1 {
-            font-family: var(--heading-font);
-            color: var(--text-dark);
-            font-size: 2.5rem;
-        }
+    .product-category {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--secondary-color);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 5px;
+    }
 
-        .product-category {
-            font-size: 0.9rem;
-            color: #6c757d;
-            background-color: var(--grey-bg);
-            padding: 4px 10px;
-            border-radius: 50px;
-            display: inline-block;
-            margin-top: 5px;
-        }
+    .product-title {
+      font-family: var(--heading-font);
+      font-size: 2.2rem; /* Sedikit lebih kecil agar muat jika judul panjang */
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
 
-        .product-description {
-            color: #555;
-            line-height: 1.8;
-            font-size: 1rem;
-            margin-top: 20px;
-        }
+    .product-description {
+      color: #555;
+      line-height: 1.8;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
 
-        hr {
-            border-top: 1px solid #eee;
-            margin: 1.5rem 0;
-        }
+    /* Accordion Styling */
+    .accordion-item {
+      border: none;
+      border-bottom: 1px solid #eee;
+      background-color: transparent;
+    }
+    
+    .accordion-button {
+      font-weight: 600;
+      color: #333;
+      background-color: transparent;
+      padding: 1.2rem 0;
+      box-shadow: none !important;
+    }
 
-        .accordion-item {
-            border: none;
-            background-color: transparent;
-            border-top: 1px solid #eee;
-        }
+    .accordion-button:not(.collapsed) {
+      color: var(--primary-color);
+      background-color: transparent;
+    }
 
-        .accordion-button {
-            font-weight: 600;
-            color: var(--text-dark);
-            background-color: transparent;
-            padding: 1rem 0;
-        }
+    .accordion-body {
+        color: #666;
+        padding-top: 0;
+        padding-bottom: 1.5rem;
+    }
 
-        .accordion-button:not(.collapsed) {
-            background-color: transparent;
-            color: var(--primary-color);
-            box-shadow: none;
-        }
+    .accordion-body ul {
+        padding-left: 1rem;
+        margin-bottom: 0;
+    }
+    
+    .accordion-body li {
+        margin-bottom: 0.5rem;
+    }
 
-        .accordion-button:focus {
-            box-shadow: none;
-        }
+    /* Action Buttons */
+    .action-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 30px;
+    }
 
-        .accordion-body ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
+    .btn-action {
+      flex: 1;
+      padding: 12px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      min-width: 160px;
+      border: 2px solid transparent;
+    }
 
-        .accordion-body li {
-            margin-bottom: 8px;
-        }
+    .btn-shopee {
+      background-color: #EE4D2D;
+      color: white;
+      border-color: #EE4D2D;
+    }
+    .btn-shopee:hover {
+      background-color: white;
+      color: #EE4D2D;
+      transform: translateY(-3px);
+    }
 
-        .purchase-options h5 {
-            font-weight: 600;
-            font-size: 1rem;
-            color: #555;
-            margin-bottom: 1rem;
-        }
+    .btn-tiktok {
+      background-color: #000000;
+      color: white;
+      border-color: #000000;
+    }
+    .btn-tiktok:hover {
+      background-color: white;
+      color: #000000;
+      transform: translateY(-3px);
+    }
 
-        .action-buttons {
-            display: flex;
-            gap: 15px;
-        }
+    .btn-back-link {
+        display: inline-flex;
+        align-items: center;
+        color: var(--secondary-color);
+        text-decoration: none;
+        margin-top: 20px;
+        font-weight: 500;
+        transition: 0.3s;
+    }
+    .btn-back-link:hover {
+        color: var(--primary-color);
+        transform: translateX(-5px);
+    }
 
-        .action-buttons .btn {
-            padding: 12px;
-            font-size: 1rem;
-            font-weight: 600;
-            flex: 1;
-            border-radius: 8px;
-            text-decoration: none;
-        }
+    /* --- Footer --- */
+    footer {
+      background-color: var(--secondary-color);
+      color: var(--white);
+      padding: 40px 0 30px;
+      margin-top: 60px;
+    }
+    .social-icons a {
+      color: rgba(255, 255, 255, 0.9);
+      margin: 0 10px;
+      font-size: 1.3rem;
+    }
 
-        .btn-shopee {
-            background-color: #EE4D2D;
-            color: white;
-        }
+    /* --- Mobile Nav --- */
+    .bottom-nav {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background-color: #ffffff;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+      display: flex; justify-content: space-around;
+      padding: 10px 0; z-index: 1000;
+      border-top-left-radius: 20px; border-top-right-radius: 20px;
+    }
+    .bottom-nav-item {
+      display: flex; flex-direction: column; align-items: center;
+      text-decoration: none; color: var(--secondary-color);
+      flex: 1; font-size: 0.75rem;
+    }
+    .bottom-nav-item i { font-size: 1.2rem; margin-bottom: 4px; }
+    .bottom-nav-item.active { color: var(--primary-color); font-weight: 600; }
 
-        .btn-shopee:hover {
-            background-color: #d73a19;
-            color: white;
-        }
-
-        .btn-tiktok {
-            background-color: #000000;
-            color: white;
-        }
-
-        .btn-tiktok:hover {
-            background-color: #333;
-            color: white;
-        }
-
-        .btn-outline-secondary {
-            border-color: var(--secondary-color);
-            color: var(--secondary-color);
-            margin-top: 15px;
-        }
-
-        .btn-outline-secondary:hover {
-            background-color: var(--secondary-color);
-            color: white;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--secondary-color);
-            color: var(--text-light);
-            padding: 40px 0;
-            margin-top: 60px; /* Default for desktop */
-        }
-
-        .social-icons a {
-            color: var(--text-light);
-            margin: 0 12px;
-            font-size: 1.5rem;
-        }
-
-        /* Navbar Bawah (Mobile) - NEW STYLES */
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: var(--light-bg);
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: space-around;
-            padding: 10px 0;
-            z-index: 1000;
-            /* Sudut atas melengkung */
-            border-top-left-radius: 20px;
-            border-top-right-radius: 20px;
-            padding-top: 10px;
-        }
-
-        .bottom-nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: var(--secondary-color);
-            flex: 1;
-            padding: 0 5px;
-        }
-
-        .bottom-nav-item i {
-            font-size: 1.2rem;
-            margin-bottom: 4px;
-            transition: all 0.3s ease;
-            color: var(--secondary-color);
-        }
-
-        .bottom-nav-item span {
-            font-size: 0.75rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            color: var(--secondary-color);
-        }
-
-        /* Style untuk link aktif (Bulat dan Pop-up) */
-        .bottom-nav-item.active {
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-
-        .bottom-nav-item.active i {
-            background-color: var(--primary-color);
-            color: var(--highlight-bg);
-            border-radius: 50%;
-            padding: 8px;
-            font-size: 1rem;
-            transform: translateY(-5px);
-            box-shadow: 0 4px 10px rgba(93, 124, 169, 0.5);
-            margin-bottom: 2px;
-        }
-
-        .bottom-nav-item.active span {
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-
-        @media (min-width: 768px) {
-            .bottom-nav {
-                display: none;
-            }
-
-            body {
-                padding-bottom: 0;
-            }
-            footer {
-                margin-top: 60px; /* Jarak default untuk desktop */
-            }
-        }
-
-        @media (max-width: 767px) {
-            .navbar-top {
-                display: none;
-            }
-
-            .product-detail-section {
-                padding: 40px 15px;
-            }
-
-            .product-info h1 {
-                font-size: 1.8rem;
-            }
-
-            .product-description {
-                font-size: 0.9rem;
-            }
-
-            .accordion-button,
-            .accordion-body {
-                font-size: 0.9rem;
-            }
-
-            .action-buttons .btn {
-                font-size: 0.9rem;
-                padding: 10px;
-            }
-            /* Menambahkan jarak footer untuk mobile */
-            footer {
-                margin-top: 20px;
-            }
-        }
-    </style>
+    /* Responsive */
+    @media (min-width: 768px) {
+      .bottom-nav { display: none; }
+      body { padding-bottom: 0; }
+    }
+    @media (max-width: 767px) {
+      .navbar-top { display: none; }
+      .product-info { padding-left: 0; margin-top: 30px; }
+      .product-title { font-size: 1.8rem; }
+      .action-buttons { flex-direction: column; }
+    }
+  </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light navbar-top">
-        <div class="container"><a class="navbar-brand" href="home.html"><img src="Gambar/1233.png" alt="Logo NDA"
-                    height="40" /></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">Tentang Kami</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="katalog.html">Katalog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Hubungi Kami</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <main class="container">
-        <section class="product-detail-section">
-            <div class="row g-5">
-                <div class="col-lg-6">
-                    <div id="productGallery" class="carousel slide product-gallery-carousel" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="Gambar/Pashmina-Basic/1.JPG" class="d-block w-100" alt="Pashmina Rayon Basic - Foto 1">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="Gambar/Pashmina-Basic/2.JPG" class="d-block w-100" alt="Pashmina Rayon Basic - Foto 2">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="Gambar/Pashmina-Basic/3.JPG" class="d-block w-100" alt="Pashmina Rayon Basic - Foto 3">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="Gambar/Pashmina-Basic/4.JPG" class="d-block w-100" alt="Pashmina Rayon Basic - Foto 4">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#productGallery"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#productGallery"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="col-lg-6">
-                    <div class="product-info">
-                        <span class="product-category">Pashmina</span>
-                        <h1>Pashmina Cotton Rayon Basic Vol 2</h1>
-                        <hr>
-                        <p class="product-description">
-                            Bayangkan memakai hijab yang bukan hanya indah dipandang, tetapi juga memberikan rasa nyaman
-                            setiap saat. Dibuat dari bahan cotton rayon premium yang lembut, ringan, dan adem, pashmina
-                            ini terasa begitu natural saat menyentuh kulit.
-                        </p>
-
-                        <div class="accordion" id="productDetailsAccordion">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingOne"><button class="accordion-button"
-                                        type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                                        aria-expanded="true" aria-controls="collapseOne">Spesifikasi Produk</button>
-                                </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show"
-                                    aria-labelledby="headingOne">
-                                    <div class="accordion-body">
-                                        <ul>
-                                            <li><strong>Material:</strong> Cotton Rayon</li>
-                                            <li><strong>Ukuran:</strong> 70 x 170 cm (Before Strech)</li>
-                                            <li><strong>Pilihan Warna:</strong> Black, Broken White, Beige, Fossil Grey,
-                                                Cocoa</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingTwo"><button class="accordion-button collapsed"
-                                        type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                                        aria-expanded="false" aria-controls="collapseTwo">Info Toko & Catatan</button>
-                                </h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse"
-                                    aria-labelledby="headingTwo">
-                                    <div class="accordion-body">
-                                        <strong>Waktu Operasional Toko:</strong>
-                                        <ul>
-                                            <li>Senin - Sabtu, 09.00 - 19.00 WIB.</li>
-                                            <li>Order di bawah jam 17.00 akan dikirim di hari yang sama.</li>
-                                            <li>Order di atas jam 17.00 akan dikirim keesokan harinya.</li>
-                                        </ul>
-                                        <strong>Catatan Penting:</strong>
-                                        <ul>
-                                            <li>Warna produk tidak 100% sama dikarenakan faktor cahaya atau display
-                                                layar.</li>
-                                            <li>Pastikan pesanan sesuai sebelum melakukan pembayaran.</li>
-                                            <li>Toleransi ukuran 2-5 cm.</li>
-                                            <li><strong>Wajib video unboxing</strong> untuk klaim retur/refund.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="purchase-options mt-4">
-                            <h5>Beli Melalui:</h5>
-                            <div class="action-buttons">
-                                <a href="https://shopee.co.id/NDA-Pashmina-Cotton-Rayon-Airflow-Basic-Hijab-Pashmina-Kaos-Rayon-Basic-Tekstur-Halus-Vol-2-i.1352980252.43217613870"
-                                    target="_blank" class="btn btn-shopee"><i class="fas fa-store me-2"></i>Shopee</a>
-                                <a href="https://vt.tokopedia.com/t/ZSHtESk4WcAKe-hcyXl/" target="_blank"
-                                    class="btn btn-tiktok"><i class="fab fa-tiktok me-2"></i>TikTok</a>
-                            </div>
-                            <a href="katalog.html" class="btn btn-outline-secondary w-100"><i
-                                    class="fas fa-arrow-left me-2"></i>Kembali ke Katalog</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="text-center">
-        <div class="container">
-            <p class="mb-3">&copy; 2025 NDA Fashion Hijab. All Rights Reserved.</p>
-            <div class="social-icons"><a href="https://www.instagram.com/nda.official.store/" target="_blank"
-                    aria-label="Instagram"><i class="fab fa-instagram"></i></a><a
-                    href="https://shopee.co.id/nda.onlinestore" target="_blank" aria-label="Shopee"><i
-                        class="fas fa-store"></i></a><a
-                    href="https://www.tiktok.com/@nda.official.store?_t=ZS-8zT46ku2l0L&_r=1" target="_blank"
-                    aria-label="TikTok"><i class="fab fa-tiktok"></i></a><a href="https://wa.me/628568636423"
-                    target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div>
-        </div>
-    </footer>
-    
-    <div class="bottom-nav d-md-none">
-        <a href="home.html" class="bottom-nav-item"><i class="fas fa-home"></i><span>Home</span></a>
-        <a href="about.html" class="bottom-nav-item"><i class="fas fa-info-circle"></i><span>About</span></a>
-        <a href="katalog.html" class="bottom-nav-item active"><i class="fas fa-book-open"></i><span>Katalog</span></a>
-        <a href="contact.html" class="bottom-nav-item"><i class="fas fa-phone"></i><span>Contact</span></a>
+  <nav class="navbar navbar-expand-lg fixed-top navbar-top">
+    <div class="container">
+      <a class="navbar-brand" href="home.html">
+        <img src="Gambar/1233.png" alt="Logo NDA" height="40" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">Tentang Kami</a></li>
+          <li class="nav-item"><a class="nav-link active" href="katalog.html">Katalog</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Hubungi Kami</a></li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
+  <main class="container">
+    <section class="product-detail-section">
+      <div class="mb-4" data-aos="fade-down">
+         <a href="katalog.html" class="btn-back-link"><i class="fas fa-arrow-left me-2"></i> Kembali ke Katalog</a>
+      </div>
+
+      <div class="row g-5">
+        
+        <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
+          <div id="productGallery" class="carousel slide product-gallery-carousel" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="Gambar/Pashmina-Basic/1.JPG" class="d-block w-100" alt="Pashmina Rayon Basic - Foto 1">
+              </div>
+              <div class="carousel-item">
+                <img src="Gambar/Pashmina-Basic/2.JPG" class="d-block w-100" alt="Pashmina Rayon Basic - Foto 2">
+              </div>
+              <div class="carousel-item">
+                <img src="Gambar/Pashmina-Basic/3.JPG" class="d-block w-100" alt="Pashmina Rayon Basic - Foto 3">
+              </div>
+              <div class="carousel-item">
+                <img src="Gambar/Pashmina-Basic/4.JPG" class="d-block w-100" alt="Pashmina Rayon Basic - Foto 4">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#productGallery" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#productGallery" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+          <div class="product-info">
+            <span class="product-category">Pashmina</span>
+            <h1 class="product-title">Cotton Rayon Basic Vol 2</h1>
+            
+            <p class="product-description">
+              Bayangkan memakai hijab yang bukan hanya indah dipandang, tetapi juga memberikan rasa nyaman setiap saat. Dibuat dari bahan cotton rayon premium yang lembut, ringan, dan adem, pashmina ini terasa begitu natural saat menyentuh kulit.
+            </p>
+
+            <div class="accordion" id="productDetailsAccordion">
+              
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <i class="fas fa-list-ul me-2"></i> Spesifikasi Produk
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#productDetailsAccordion">
+                  <div class="accordion-body">
+                    <ul>
+                      <li><strong>Material:</strong> Cotton Rayon Premium</li>
+                      <li><strong>Ukuran:</strong> 70 x 170 cm (Before Stretch)</li>
+                      <li><strong>Pilihan Warna:</strong> Black, Broken White, Beige, Fossil Grey, Cocoa</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <i class="fas fa-store me-2"></i> Info Toko & Catatan
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#productDetailsAccordion">
+                  <div class="accordion-body">
+                    <strong>Waktu Operasional Toko:</strong>
+                    <ul>
+                      <li>Senin - Sabtu, 09.00 - 19.00 WIB.</li>
+                      <li>Order di bawah jam 17.00 akan dikirim di hari yang sama.</li>
+                    </ul>
+                    <br>
+                    <strong>Catatan Penting:</strong>
+                    <ul>
+                      <li>Warna produk tidak 100% sama dikarenakan faktor cahaya.</li>
+                      <li>Toleransi ukuran 2-5 cm.</li>
+                      <li><strong>Wajib video unboxing</strong> untuk klaim retur/refund.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="action-buttons">
+              <a href="https://shopee.co.id/NDA-Pashmina-Cotton-Rayon-Airflow-Basic-Hijab-Pashmina-Kaos-Rayon-Basic-Tekstur-Halus-Vol-2-i.1352980252.43217613870" target="_blank" class="btn-action btn-shopee">
+                  <i class="fas fa-shopping-bag me-2"></i> Beli di Shopee
+              </a>
+              <a href="https://vt.tokopedia.com/t/ZSHtESk4WcAKe-hcyXl/" target="_blank" class="btn-action btn-tiktok">
+                  <i class="fab fa-tiktok me-2"></i> Beli di TikTok
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="text-center">
+    <div class="container">
+      <div class="social-icons mb-3">
+        <a href="https://www.instagram.com/nda.official.store/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://shopee.co.id/nda.onlinestore" target="_blank"><i class="fas fa-store"></i></a>
+        <a href="https://www.tiktok.com/@nda.official.store" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/628568636423" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <p class="small mb-0">© 2025 NDA Fashion Hijab. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <div class="bottom-nav d-md-none">
+    <a href="home.html" class="bottom-nav-item"><i class="fas fa-home"></i><span>Home</span></a>
+    <a href="about.html" class="bottom-nav-item"><i class="fas fa-info-circle"></i><span>About</span></a>
+    <a href="katalog.html" class="bottom-nav-item active"><i class="fas fa-book-open"></i><span>Katalog</span></a>
+    <a href="contact.html" class="bottom-nav-item"><i class="fas fa-phone"></i><span>Contact</span></a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true,
+      duration: 800,
+      offset: 100
+    });
+  </script>
+</body>
 </html>

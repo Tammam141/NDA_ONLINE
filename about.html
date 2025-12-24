@@ -6,122 +6,121 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tentang Kami - NDA Fashion Hijab</title>
   <link rel="website icon" href="Gambar/1233.png">
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --primary-color: #5D7CA9;
       --secondary-color: #7B95B9;
       --light-bg: #F5EDED;
-      --highlight-bg: #FFFFFF;
-      --grey-bg: #f8f9fa;
-      --text-dark: #333;
-      --text-light: #f8f9fa;
+      --white: #FFFFFF;
       --heading-font: 'Playfair Display', serif;
       --body-font: 'Poppins', sans-serif;
-      --border-radius: 12px;
-      --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+      --shadow-hover: 0 15px 35px rgba(93, 124, 169, 0.2);
     }
 
     body {
-    /* background-color: var(--light-bg); <--- BARIS SEBELUMNYA (ini yang menyebabkan mengambang) */
-    background-color: var(--highlight-bg); /* BARU: Membuat latar belakang body putih agar navbar bawah menyatu */
-    color: var(--text-dark);
-    font-family: var(--body-font);
-    padding-bottom: 80px; /* Ruang untuk navbar bawah */
-}
-
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      background-color: var(--light-bg);
+      color: #444;
+      font-family: var(--body-font);
+      padding-bottom: 80px;
+      overflow-x: hidden;
     }
 
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .delay-1 {
-      transition-delay: 0.1s;
-    }
-
-    /* Navbar Atas (Desktop) */
+    /* --- Navbar Styling --- */
     .navbar-top {
-      background-color: var(--highlight-bg);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      padding-top: 0.5rem;
-      padding-bottom: 0.5rem;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+      padding: 0.8rem 0;
     }
-
-    .navbar-top .nav-link {
-      color: var(--text-dark);
+    .nav-link {
       font-weight: 500;
-      transition: all 0.3s ease;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
+      color: #555;
+      margin: 0 5px;
+      transition: all 0.3s;
     }
-
-    .navbar-top .nav-link:hover {
-      color: var(--primary-color);
-      background-color: var(--grey-bg);
-    }
-
-    .navbar-top .nav-link.active {
+    .nav-link:hover, .nav-link.active {
       color: var(--primary-color) !important;
+    }
+    .nav-link.active {
       font-weight: 600;
-      background-color: rgba(93, 124, 169, 0.1);
     }
 
-    /* Section Umum */
-    .section {
-      padding: 80px 20px;
-    }
-
-    .section-title {
+    /* --- Header Modern --- */
+    .page-header {
+      background-color: var(--secondary-color);
+      padding: 80px 0 100px;
       text-align: center;
-      margin-bottom: 50px;
-      font-family: var(--heading-font);
-      font-size: 2.8rem;
-      color: var(--primary-color);
+      color: var(--white);
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+      margin-bottom: 40px;
+      position: relative;
     }
 
-    /* Story Section */
+    .page-header h1 {
+      font-family: var(--heading-font);
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+    
+    .page-header p {
+        max-width: 600px;
+        margin: 0 auto;
+        opacity: 0.9;
+    }
+
+    /* --- Story Section --- */
     .story-section {
-      background-color: var(--highlight-bg);
+      padding: 40px 0 80px;
     }
 
     .founder-img {
       width: 100%;
-      border-radius: var(--border-radius);
-      box-shadow: var(--shadow);
+      border-radius: 20px;
+      box-shadow: var(--shadow-soft);
       object-fit: cover;
-      aspect-ratio: 1/1.2;
+      transition: transform 0.5s ease;
+    }
+    
+    .founder-img:hover {
+        transform: scale(1.02);
     }
 
     .story-content h3 {
       font-family: var(--heading-font);
       color: var(--primary-color);
+      font-size: 2.2rem;
       margin-bottom: 20px;
     }
 
     .story-content p {
       line-height: 1.8;
       color: #555;
+      font-size: 1.05rem;
     }
 
-    /* Timeline Section */
+    /* --- Timeline Section --- */
     .timeline-section {
-      background-color: var(--light-bg);
+      background-color: var(--white);
+      padding: 80px 0;
+      position: relative;
+    }
+    
+    .section-title {
+        text-align: center;
+        font-family: var(--heading-font);
+        color: var(--primary-color);
+        margin-bottom: 60px;
+        font-size: 2.5rem;
     }
 
     .timeline {
@@ -130,15 +129,17 @@
       margin: 0 auto;
     }
 
+    /* Garis Tengah */
     .timeline::after {
       content: '';
       position: absolute;
       width: 4px;
-      background-color: var(--secondary-color);
+      background-color: #e0e0e0;
       top: 0;
       bottom: 0;
       left: 50%;
       margin-left: -2px;
+      border-radius: 2px;
     }
 
     .timeline-item {
@@ -148,78 +149,108 @@
       width: 50%;
     }
 
+    /* Titik Timeline */
     .timeline-item::after {
       content: '';
       position: absolute;
       width: 20px;
       height: 20px;
       right: -10px;
-      background-color: white;
+      background-color: var(--white);
       border: 4px solid var(--primary-color);
-      top: 20px;
+      top: 25px;
       border-radius: 50%;
       z-index: 1;
+      transition: all 0.3s;
+    }
+    
+    .timeline-item:hover::after {
+        background-color: var(--primary-color);
+        transform: scale(1.2);
     }
 
-    .timeline-item.left {
-      left: 0;
-    }
-
-    .timeline-item.right {
-      left: 50%;
-    }
-
-    .timeline-item.right::after {
-      left: -10px;
-    }
+    .timeline-item.left { left: 0; }
+    .timeline-item.right { left: 50%; }
+    .timeline-item.right::after { left: -10px; }
 
     .timeline-content {
-      padding: 20px 30px;
-      background-color: white;
-      position: relative;
-      border-radius: var(--border-radius);
-      box-shadow: var(--shadow);
+      padding: 25px;
+      background-color: var(--light-bg);
+      border-radius: 15px;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.3s ease;
+    }
+    
+    .timeline-item:hover .timeline-content {
+        transform: translateY(-5px);
+        background-color: #fff;
+        box-shadow: var(--shadow-hover);
     }
 
     .timeline-content h4 {
       font-family: var(--heading-font);
+      color: var(--primary-color);
+      margin-bottom: 10px;
     }
+    
+    .timeline-content p { margin: 0; font-size: 0.95rem; }
 
-    /* Vision Section */
+    /* --- Vision Section --- */
     .vision-section {
-      background-color: var(--primary-color);
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
       color: white;
       text-align: center;
       padding: 100px 20px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .vision-section .section-title {
-      color: white;
-    }
-
-    .vision-section p {
-      font-size: 1.2rem;
-      font-style: italic;
+    .vision-content {
+      position: relative;
+      z-index: 2;
       max-width: 800px;
-      margin-inline: auto;
+      margin: 0 auto;
     }
 
-    /* Misi & Nilai Section */
+    .vision-icon {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        opacity: 0.8;
+    }
+
+    .vision-text {
+      font-family: var(--heading-font);
+      font-size: 1.8rem;
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    /* --- Misi & Nilai Section --- */
     .values-section {
-      background-color: var(--light-bg);
+      padding: 80px 0;
     }
 
     .values-card {
-      background: var(--highlight-bg);
-      padding: 30px;
-      border-radius: var(--border-radius);
-      box-shadow: var(--shadow);
+      background: var(--white);
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: var(--shadow-soft);
+      height: 100%;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+    
+    .values-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-hover);
     }
 
     .values-card h3 {
       font-family: var(--heading-font);
       color: var(--primary-color);
-      margin-bottom: 20px;
+      margin-bottom: 25px;
+      text-align: center;
+      font-size: 1.8rem;
     }
 
     .values-list {
@@ -237,159 +268,96 @@
 
     .values-list i {
       font-size: 1.2rem;
-      color: var(--primary-color);
+      color: var(--secondary-color);
       margin-right: 15px;
-      margin-top: 5px;
+      margin-top: 4px;
       flex-shrink: 0;
     }
 
-    /* Footer */
+    /* --- Footer (Blue Theme) --- */
     footer {
       background-color: var(--secondary-color);
-      color: var(--text-light);
-      padding: 40px 0;
+      color: var(--white);
+      padding: 40px 0 30px;
       margin-top: 0;
     }
-
+    
     .social-icons a {
-      color: white;
-      margin: 0 12px;
-      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin: 0 10px;
+      font-size: 1.3rem;
+      transition: all 0.3s;
+      display: inline-block;
     }
+    
+    .social-icons a:hover {
+      color: white;
+      transform: translateY(-3px);
+    }
+    
+    footer p.small { opacity: 0.8; }
 
-    /* Navbar Bawah (Mobile) - NEW STYLES */
+    /* --- Mobile Nav --- */
     .bottom-nav {
       position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-color: var(--highlight-bg);
+      bottom: 0; left: 0; right: 0;
+      background-color: #ffffff;
       box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
       display: flex;
       justify-content: space-around;
       padding: 10px 0;
       z-index: 1000;
-      /* Sudut atas melengkung */
       border-top-left-radius: 20px;
       border-top-right-radius: 20px;
-      padding-top: 10px;
-      border-top: none;
-      /* Pastikan border atas hilang */
     }
 
     .bottom-nav-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-decoration: none;
-      color: var(--secondary-color);
-      flex: 1;
-      padding: 0 5px;
+      display: flex; flex-direction: column; align-items: center;
+      text-decoration: none; color: var(--secondary-color);
+      flex: 1; font-size: 0.75rem;
     }
 
     .bottom-nav-item i {
-      font-size: 1.2rem;
-      margin-bottom: 4px;
-      transition: all 0.3s ease;
-      color: var(--secondary-color);
+      font-size: 1.2rem; margin-bottom: 4px; transition: 0.3s;
     }
 
-    .bottom-nav-item span {
-      font-size: 0.75rem;
-      font-weight: 500;
-      transition: color 0.3s ease;
-      color: var(--secondary-color);
-    }
-
-    /* Style untuk link aktif (Bulat dan Pop-up) */
     .bottom-nav-item.active {
-      color: var(--primary-color);
-      font-weight: 600;
-      margin-top: 5px;
+      color: var(--primary-color); font-weight: 600;
     }
-
-    .bottom-nav-item.active i {
-      background-color: var(--primary-color);
-      color: var(--highlight-bg);
-      border-radius: 50%;
-      padding: 8px;
-      font-size: 1rem;
-      transform: translateY(-5px);
-      box-shadow: 0 4px 10px rgba(93, 124, 169, 0.5);
-      margin-bottom: 0px;
-    }
-
-    .bottom-nav-item.active span {
-      color: var(--primary-color);
-      font-weight: 600;
-    }
-
+    
+    .bottom-nav-item.active i { transform: translateY(-3px); }
 
     /* Responsive */
     @media (min-width: 768px) {
-      .values-card {
-        height: 100%;
-      }
-
-      .bottom-nav {
-        display: none;
-      }
-
-      body {
-        padding-bottom: 0;
-      }
+      .bottom-nav { display: none; }
+      body { padding-bottom: 0; }
     }
 
     @media (max-width: 767px) {
-      .navbar-top {
-        display: none;
-      }
-
-      .section {
-        padding: 50px 15px;
-      }
-
-      .values-card h3 {
-        font-size: 1.6rem;
-      }
-
-      .values-list li {
-        font-size: 0.95rem;
-      }
-
-      .timeline::after {
-        left: 15px;
-      }
-
-      .timeline-item {
-        width: 100%;
-        padding-left: 50px;
-        padding-right: 15px;
-      }
-
-      .timeline-item.left::after,
-      .timeline-item.right::after {
-        left: 6px;
-      }
-
-      .timeline-item.right {
-        left: 0%;
-      }
-
-      /* Margin atas footer untuk memberi jarak dari bottom-nav */
-      footer {
-        margin-top: 20px;
-      }
+      .navbar-top { display: none; }
+      .page-header { padding: 60px 0 80px; }
+      .page-header h1 { font-size: 2.2rem; }
+      
+      .timeline::after { left: 20px; }
+      .timeline-item { width: 100%; padding-left: 50px; padding-right: 10px; }
+      .timeline-item::after { left: 11px; }
+      .timeline-item.right { left: 0%; }
+      
+      .vision-text { font-size: 1.3rem; }
     }
   </style>
 </head>
 
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-light navbar-top">
-    <div class="container"><a class="navbar-brand" href="home.html"><img src="Gambar/1233.png" alt="Logo NDA"
-          height="40" /></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+  <nav class="navbar navbar-expand-lg fixed-top navbar-top">
+    <div class="container">
+      <a class="navbar-brand" href="home.html">
+        <img src="Gambar/1233.png" alt="Logo NDA" height="40" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
@@ -401,101 +369,87 @@
     </div>
   </nav>
 
+  <header class="page-header" data-aos="fade-down">
+    <div class="container">
+      <h1>Tentang NDA</h1>
+      <p>Kenyamanan, Kualitas, dan Keanggunan dalam satu balutan.</p>
+    </div>
+  </header>
+
   <main>
-    <section class="section story-section">
+    <section class="story-section">
       <div class="container">
         <div class="row align-items-center g-5">
-          <div class="col-lg-5"><img src="Gambar/Sela.JPG" alt="Pendiri NDA Fashion, Selanda"
-              class="founder-img fade-in"></div>
-          <div class="col-lg-7">
-            <div class="story-content fade-in" style="transition-delay: 0.1s;">
+          <div class="col-lg-5" data-aos="fade-right">
+             <img src="Gambar/Sela.JPG" alt="Pendiri NDA Fashion, Selanda" class="founder-img">
+          </div>
+          <div class="col-lg-7" data-aos="fade-left">
+            <div class="story-content">
               <h3>Cerita di Balik NDA Hijab</h3>
-              <p>NDA adalah brand fashion muslimah yang lahir dari seorang perempuan muda yang berjiwa pengusaha. Dia
-                sangat menyukai penampilan yang simple namun tetap terlihat nyaman dan cantik.</p>
-              <p>Bermula dari kepribadian yang menyukai pemakaian hijab harus nyaman dan mengutamamakan kualitas, maka
-                dari itu NDA siap menjadi brand pilihan untuk kalian yang juga mengutamakan kenyamanan dan kualitas.</p>
+              <p>NDA adalah brand fashion muslimah yang lahir dari seorang perempuan muda yang berjiwa pengusaha. Ia percaya bahwa penampilan sederhana bisa tetap terlihat elegan jika dibalut dengan kenyamanan.</p>
+              <p>Berawal dari kebutuhan pribadi akan hijab yang tidak hanya cantik dipandang tetapi juga nyaman dikenakan seharian, NDA hadir sebagai solusi. Kami berkomitmen menjadi sahabat setia perjalanan hijrah Anda dengan kualitas bahan premium yang terpercaya.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section timeline-section">
+    <section class="timeline-section">
       <div class="container">
-        <h2 class="section-title fade-in">Perjalanan Kami</h2>
+        <h2 class="section-title" data-aos="fade-up">Perjalanan Kami</h2>
         <div class="timeline">
-          <div class="timeline-item left fade-in">
+          <div class="timeline-item left" data-aos="fade-up" data-aos-delay="100">
             <div class="timeline-content">
               <h4>2023 - Awal Mula</h4>
-              <p>Perancangan konsep serta pematangan kualitas produk yang akan rilis.</p>
+              <p>Perancangan konsep, riset bahan, serta pematangan kualitas produk untuk menciptakan standar kenyamanan baru.</p>
             </div>
           </div>
-          <div class="timeline-item right fade-in">
+          <div class="timeline-item right" data-aos="fade-up" data-aos-delay="200">
             <div class="timeline-content">
-              <h4>2024 - Peluncuran Koleksi Perdana</h4>
-              <p>Merilis koleksi pertama yaitu, Pashmina Cotton Rayon dan Segiempat Paris Voal.</p>
+              <h4>2024 - Koleksi Perdana</h4>
+              <p>Peluncuran resmi Pashmina Cotton Rayon dan Segiempat Paris Voal yang langsung mendapat sambutan hangat.</p>
             </div>
           </div>
-          <div class="timeline-item left fade-in">
+          <div class="timeline-item left" data-aos="fade-up" data-aos-delay="300">
             <div class="timeline-content">
               <h4>2025 - Menjangkau Dunia</h4>
-              <p>Melalui website ini, kami berharap dapat menjangkau pelanggan di seluruh penjuru dunia.</p>
+              <p>Transformasi digital melalui website resmi untuk melayani pelanggan muslimah di seluruh penjuru Indonesia dan dunia.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section vision-section">
-      <div class="container fade-in">
-        <h2 class="section-title">Visi Kami</h2>
-        <p>"Menjadi brand fashion muslimah yang menginspirasi para wanita untuk tampil percaya diri, dan anggun, namun
-          tetap sesuai dengan nilai-nilai Islam."</p>
+    <section class="vision-section">
+      <div class="container vision-content" data-aos="zoom-in">
+        <i class="fas fa-quote-left vision-icon"></i>
+        <h2 class="visually-hidden">Visi Kami</h2>
+        <p class="vision-text">"Menjadi brand fashion muslimah yang menginspirasi para wanita untuk tampil percaya diri dan anggun, namun tetap teguh memegang nilai-nilai Islam."</p>
       </div>
     </section>
 
-    <section class="section values-section">
+    <section class="values-section">
       <div class="container">
-        <div class="row g-5">
-          <div class="col-lg-6 fade-in">
+        <div class="row g-4">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <div class="values-card">
               <h3>Misi Kami</h3>
               <ul class="values-list">
-                <li><i class="fas fa-check-circle"></i>
-                  <div>Menyediakan koleksi hijab berkualitas tinggi dengan desain yang modis, elegan, dan relevan.</div>
-                </li>
-                <li><i class="fas fa-check-circle"></i>
-                  <div>Mengutamakan kenyamanan dengan pilihan bahan yang lembut, adem, dan mudah dibentuk.</div>
-                </li>
-                <li><i class="fas fa-check-circle"></i>
-                  <div>Memberikan pelayanan terbaik serta pengalaman belanja yang amanah.</div>
-                </li>
-                <li><i class="fas fa-check-circle"></i>
-                  <div>Membangun komunitas muslimah yang saling mendukung dalam gaya hidup Islami.</div>
-                </li>
-                <li><i class="fas fa-check-circle"></i>
-                  <div>Berinovasi dalam produk dan pemasaran untuk menjangkau seluruh Indonesia.</div>
-                </li>
+                <li><i class="fas fa-check-circle"></i> <div>Koleksi hijab berkualitas tinggi, modis, dan elegan.</div></li>
+                <li><i class="fas fa-check-circle"></i> <div>Mengutamakan bahan yang lembut, adem, dan mudah dibentuk.</div></li>
+                <li><i class="fas fa-check-circle"></i> <div>Pelayanan ramah, responsif, dan amanah.</div></li>
+                <li><i class="fas fa-check-circle"></i> <div>Membangun komunitas muslimah yang saling mendukung.</div></li>
               </ul>
             </div>
           </div>
-          <div class="col-lg-6 fade-in" style="transition-delay: 0.1s;">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
             <div class="values-card">
-              <h3>Nilai-Nilai Kami</h3>
+              <h3>Nilai Utama</h3>
               <ul class="values-list">
-                <li><i class="fas fa-heart"></i>
-                  <div><strong>Kejujuran & Amanah:</strong> Menjadi landasan dalam setiap pelayanan kami.</div>
-                </li>
-                <li><i class="fas fa-palette"></i>
-                  <div><strong>Kreativitas & Inovasi:</strong> Terus berinovasi dalam desain dan produk.</div>
-                </li>
-                <li><i class="fas fa-users"></i>
-                  <div><strong>Kepedulian:</strong> Peduli terhadap pelanggan dan komunitas muslimah.</div>
-                </li>
-                <li><i class="fas fa-leaf"></i>
-                  <div><strong>Kualitas & Keberlanjutan:</strong> Berkomitmen pada produk yang awet dan berkualitas
-                    tinggi.</div>
-                </li>
+                <li><i class="fas fa-heart"></i> <div><strong>Kejujuran:</strong> Landasan utama dalam setiap transaksi.</div></li>
+                <li><i class="fas fa-lightbulb"></i> <div><strong>Inovasi:</strong> Selalu menghadirkan desain yang fresh.</div></li>
+                <li><i class="fas fa-users"></i> <div><strong>Kepedulian:</strong> Mendengar kebutuhan setiap pelanggan.</div></li>
+                <li><i class="fas fa-gem"></i> <div><strong>Kualitas:</strong> Tidak ada kompromi untuk standar bahan.</div></li>
               </ul>
             </div>
           </div>
@@ -504,15 +458,15 @@
     </section>
   </main>
 
-  <footer class="text-center mt-5">
+  <footer class="text-center">
     <div class="container">
-      <p class="mb-3">© 2025 NDA Fashion Hijab. All Rights Reserved.</p>
-      <div class="social-icons"><a href="https://www.instagram.com/nda.official.store/" target="_blank"
-          aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="https://shopee.co.id/nda.onlinestore"
-          target="_blank" aria-label="Shopee"><i class="fas fa-store"></i></a><a
-          href="https://www.tiktok.com/@nda.official.store?_t=ZS-8zT46ku2l0L&_r=1" target="_blank"
-          aria-label="TikTok"><i class="fab fa-tiktok"></i></a><a href="https://wa.me/628568636423" target="_blank"
-          aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div>
+      <div class="social-icons mb-3">
+        <a href="https://www.instagram.com/nda.official.store/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://shopee.co.id/nda.onlinestore" target="_blank"><i class="fas fa-store"></i></a>
+        <a href="https://www.tiktok.com/@nda.official.store?_t=ZS-8zT46ku2l0L&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/628568636423" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <p class="small mb-0">© 2025 NDA Fashion Hijab. All Rights Reserved.</p>
     </div>
   </footer>
 
@@ -524,19 +478,13 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, {
-      threshold: 0.1
+    AOS.init({
+      once: true,
+      duration: 800,
+      offset: 100
     });
-    const elementsToFadeIn = document.querySelectorAll('.fade-in');
-    elementsToFadeIn.forEach(el => observer.observe(el));
   </script>
 </body>
-
 </html>

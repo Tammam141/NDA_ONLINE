@@ -1,245 +1,241 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Link NDA Fashion Hijab</title>
-    <link rel="website icon" href="Gambar/1233.png">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap"
-      rel="stylesheet">
-    
-    <style>
-        /* Color Palette NDA (Light Theme) */
-        :root {
-            --primary-color: #5D7CA9; /* Biru/Slate Blue */
-            --secondary-color: #7B95B9;
-            --light-bg: #F5EDED; /* Pink/Cream Background */
-            --text-dark: #333;
-            --text-light: #f8f9fa; 
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Link NDA Fashion Hijab</title>
+  <link rel="website icon" href="Gambar/1233.png">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary-color: #5D7CA9;
+      --secondary-color: #7B95B9;
+      --accent-color: #AEC2DE;
+      --dark-text: #333;
+      --light-text: #fff;
+    }
 
-        /* PERBAIKAN: Global Reset untuk No-Scroll Fit */
-        * {
-            box-sizing: border-box;
-        }
+    * { box-sizing: border-box; }
 
-        html, body {
-            margin: 0;
-            padding: 0;
-        }
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      /* Background Image Full Screen */
+      background: url('Gambar/landing.jpg') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--dark-text);
+    }
 
-        body {
-            background-color: var(--secondary-color); 
-            font-family: 'Poppins', sans-serif;
-            color: var(--text-dark); 
-            text-align: center;
-            padding: 0; 
-            display: flex;
-            flex-direction: column; 
-            /* PERBAIKAN: Hapus justify-content: center; agar footer menempel ke bawah */
-            /* justify-content: center; <-- DIHAPUS */
-            align-items: center;
-            min-height: 100dvh; 
-        }
-        
-        main {
-            /* KUNCI: Memaksa main mengambil semua ruang vertikal yang tersisa */
-            flex-grow: 1; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center; 
-            width: 100%;
-            /* Padding vertikal dikurangi dan diimbangi */
-            padding: 20px 20px; 
-            position: relative; 
-            background-image: url('Gambar/landing.jpg'); 
-            background-size: cover;
-            background-position: center top; /* PERBAIKAN BACKGROUND POSITION */
-            background-repeat: no-repeat;
-            color: var(--text-dark); 
-            z-index: 1; 
-        }
+    /* Overlay Gelap/Terang untuk Background agar teks jelas */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      /* Meningkatkan transparansi overlay body sedikit agar lebih menyatu dengan container */
+      background: rgba(93, 124, 169, 0.2); 
+      backdrop-filter: blur(3px);
+      z-index: -1;
+    }
 
-        /* Overlay untuk transparansi dan blur */
-        main::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(245, 237, 237, 0.7); 
-            backdrop-filter: blur(5px); 
-            z-index: -1; 
-        }
+    /* --- Container Utama (Kartu Kaca) --- */
+    .bio-container {
+      width: 90%;
+      max-width: 480px;
+      
+      /* --- BAGIAN INI YANG DIUBAH --- */
+      /* Nilai 0.9 diubah menjadi 0.65 agar lebih transparan. 
+         Semakin kecil angkanya, semakin transparan. */
+      background: rgba(255, 255, 255, 0.65); 
+      /* ------------------------------- */
 
-        .container-bio {
-            width: 100%;
-            max-width: 450px; 
-            margin: 0 auto;
-            position: relative; 
-            z-index: 2; 
-        }
+      backdrop-filter: blur(15px); /* Meningkatkan blur agar efek kaca lebih kuat */
+      -webkit-backdrop-filter: blur(15px); /* Untuk Safari */
+      border-radius: 30px;
+      padding: 40px 30px;
+      text-align: center;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15); /* Shadow sedikit dilembutkan */
+      margin: 20px 0;
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.4);
+    }
 
-        /* PERUBAHAN UKURAN: Logo, Brand Name, Tagline lebih besar dan di atas */
-        .logo-img {
-            width: 110px; /* Diperbesar */
-            height: auto;
-            margin-bottom: 5px; 
-        }
-        
-        .brand-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem; /* Diperbesar */
-            margin-bottom: 2px; 
-            color: var(--primary-color);
-        }
-        
-        .tagline {
-            font-size: 0.85rem; /* Diperbesar */
-            font-weight: 400;
-            color: var(--primary-color); 
-            margin-bottom: 15px; /* Disesuaikan */
-            display: block;
-        }
+    /* --- Profil --- */
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--primary-color);
+      margin-bottom: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      background-color: rgba(255, 255, 255, 0.8); /* Sedikit transparan di belakang logo */
+      padding: 2px;
+    }
 
-        /* PERUBAHAN UKURAN: Tautan dan Judul Bagian lebih besar */
-        .section-title {
-            font-size: 1rem; /* Diperbesar */
-            font-weight: 500;
-            margin-top: 15px; /* Disesuaikan */
-            margin-bottom: 8px; 
-            color: var(--primary-color); 
-        }
+    .brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--primary-color);
+      margin-bottom: 5px;
+      font-weight: 700;
+      text-shadow: 0 1px 2px rgba(255,255,255,0.5); /* Menambah sedikit shadow agar teks lebih pop-up */
+    }
 
-        .link-list {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 20px; /* Disesuaikan */
-        }
+    .tagline {
+      font-size: 0.9rem;
+      color: #555; /* Warna sedikit digelapkan agar terbaca di background transparan */
+      margin-bottom: 30px;
+      display: block;
+      font-weight: 600;
+    }
 
-        .link-list li {
-            margin-bottom: 5px; /* Disesuaikan */
-        }
+    /* --- Tombol Link (Styled Buttons) --- */
+    .link-group {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
 
-        /* Gaya Link Teks Sederhana */
-        .link-list a {
-            display: inline-block;
-            color: var(--text-dark); 
-            text-decoration: underline;
-            font-weight: 500;
-            font-size: 1.05rem; /* Diperbesar */
-            transition: color 0.3s, text-decoration 0.3s;
-        }
+    .bio-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* Tombol juga dibuat sedikit transparan agar serasi */
+      background: rgba(255, 255, 255, 0.85); 
+      color: var(--primary-color);
+      text-decoration: none;
+      padding: 16px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      border: 2px solid transparent;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      position: relative;
+      backdrop-filter: blur(5px);
+    }
 
-        .link-list a:hover {
-            color: var(--primary-color); 
-            text-decoration: none;
-        }
+    /* Ikon di kiri tombol */
+    .bio-btn i {
+      position: absolute;
+      left: 25px;
+      font-size: 1.2rem;
+    }
 
-        /* Gaya Footer Dibiarkan Sama Sesuai Permintaan */
-        .text-center {
-            text-align: center;
-        }
+    .bio-btn:hover {
+      background: var(--primary-color);
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(93, 124, 169, 0.3);
+      border-color: var(--primary-color);
+    }
 
-        footer {
-            background-color: var(--secondary-color);
-            color: var(--text-light);
-            padding: 20px 0; 
-            width: 100%;
-            position: relative; 
-            z-index: 3; 
-        }
+    /* Tombol Khusus WA */
+    .btn-wa {
+      background: rgba(37, 211, 102, 0.15); /* Sedikit lebih transparan */
+      color: #25D366;
+      font-weight: 700;
+    }
+    .btn-wa:hover {
+      background: #25D366;
+      color: #fff;
+      border-color: #25D366;
+    }
 
-        .social-icons {
-            margin-top: 10px;
-        }
+    /* --- Footer Socials --- */
+    .social-footer {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(93, 124, 169, 0.2); /* Warna border disesuaikan */
+    }
 
-        .social-icons a {
-            color: var(--text-light); 
-            margin: 0 10px;
-            font-size: 1.3rem;
-            transition: color 0.3s;
-        }
+    .social-icons a {
+      display: inline-block;
+      color: var(--primary-color); /* Warna ikon diubah agar lebih kontras */
+      font-size: 1.5rem;
+      margin: 0 10px;
+      transition: 0.3s;
+    }
 
-        .social-icons a:hover {
-            color: var(--primary-color); 
-        }
-        
-        .mb-3 { 
-            margin-bottom: 0.5rem!important;
-        }
+    .social-icons a:hover {
+      color: var(--secondary-color);
+      transform: scale(1.2);
+    }
 
-        /* MEDIA QUERY UNTUK MOBILE EXTREME (Penyesuaian untuk mengatasi "Terlalu Zoom") */
-        @media (max-width: 400px) {
-            main { 
-                padding: 20px 10px;
-            }
-            .logo-img { 
-                width: 80px;
-            }
-            .brand-name { 
-                font-size: 1.35rem;
-            }
-            .tagline { 
-                font-size: 0.7rem;
-                margin-bottom: 10px;
-            }
-            .section-title { 
-                font-size: 0.9rem;
-                margin-top: 10px;
-                margin-bottom: 5px;
-            }
-            .link-list a { 
-                font-size: 0.95rem;
-            }
-            .social-icons a { 
-                font-size: 1.1rem;
-                margin: 0 6px;
-            }
-            footer { 
-                padding: 15px 0; 
-            }
-        }
-    </style>
+    .copyright {
+      margin-top: 15px;
+      font-size: 0.75rem;
+      color: #666;
+      font-weight: 500;
+    }
+
+  </style>
 </head>
-<body>
-    <main>
-        <div class="container-bio">
-            <img src="Gambar/1233.png" alt="NDA Logo" class="logo-img">
-            <div class="brand-name">NDA OFFICIAL</div>
-            <span class="tagline">Bring Beauty Feel Comfort</span>
-            
-            <ul class="link-list">
-                <li><a href="home.html">Official Website</a></li>
-                <li><a href="https://shopee.co.id/nda.onlinestore" target="_blank">Shopee</a></li>
-                <li><a href="https://www.tiktok.com/@nda.official.store?_t=ZS-8zT46ku2l0L&_r=1" target="_blank">TikTok Shop</a></li>
-            </ul>
-            
-            <div class="section-title">HUBUNGI KAMI</div>
-            <ul class="link-list">
-                <li><a href="https://wa.me/628568636423" target="_blank">Hubungi miNDA!</a></li>
-            </ul>
-        </div>
-    </main>
 
-    <footer class="text-center">
-        <div class="container-bio">
-            <p class="mb-3">© 2025 NDA Fashion Hijab. All Rights Reserved.</p>
-            <div class="social-icons">
-                <a href="https://www.instagram.com/nda.official.store/" target="_blank" aria-label="Instagram"><i
-                        class="fab fa-instagram"></i></a>
-                <a href="https://shopee.co.id/nda.onlinestore" target="_blank" aria-label="Shopee"><i
-                        class="fas fa-store"></i></a>
-                <a href="https://www.tiktok.com/@nda.official.store?_t=ZS-8zT46ku2l0L&_r=1" target="_blank"
-                    aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                <a href="https://wa.me/628568636423" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            </div>
-        </div>
-    </footer>
+<body>
+
+  <div class="bio-container" data-aos="zoom-in" data-aos-duration="1000">
+    
+    <div class="profile-section">
+      <img src="Gambar/1233.png" alt="NDA Logo" class="profile-img">
+      <div class="brand-name">NDA OFFICIAL</div>
+      <span class="tagline">Bring Beauty Feel Comfort</span>
+    </div>
+
+    <div class="link-group">
+      
+      <a href="home.html" class="bio-btn" data-aos="fade-up" data-aos-delay="100">
+        <i class="fas fa-globe"></i> Official Website
+      </a>
+
+      <a href="https://shopee.co.id/nda.onlinestore" target="_blank" class="bio-btn" data-aos="fade-up" data-aos-delay="200">
+        <i class="fas fa-shopping-bag"></i> Shopee
+      </a>
+
+      <a href="https://www.tiktok.com/@nda.official.store?_t=ZS-8zT46ku2l0L&_r=1" target="_blank" class="bio-btn" data-aos="fade-up" data-aos-delay="300">
+        <i class="fab fa-tiktok"></i> TikTok Shop
+      </a>
+
+      <a href="https://wa.me/628568636423" target="_blank" class="bio-btn btn-wa" data-aos="fade-up" data-aos-delay="400">
+        <i class="fab fa-whatsapp"></i> Hubungi miNDA!
+      </a>
+
+    </div>
+
+    <div class="social-footer">
+      <div class="social-icons">
+        <a href="https://www.instagram.com/nda.official.store/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://shopee.co.id/nda.onlinestore" target="_blank"><i class="fas fa-store"></i></a>
+        <a href="https://www.tiktok.com/@nda.official.store" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/628568636423" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <p class="copyright">© 2025 NDA Fashion Hijab.</p>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true,
+      duration: 800,
+      offset: 0
+    });
+  </script>
 </body>
 </html>
