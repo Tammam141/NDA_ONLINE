@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
   <title>Detail Pashmina Cotton Rayon - NDA Fashion Hijab</title>
   <link rel="website icon" href="Gambar/1233.png">
 
@@ -25,14 +25,26 @@
       --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08);
     }
 
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
     body {
       background-color: var(--white);
       color: #444;
       font-family: var(--body-font);
-      padding-bottom: 80px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
 
-    /* --- Navbar Styling --- */
+    main {
+      flex: 1; 
+    }
+
+    /* --- Navbar Desktop --- */
     .navbar-top {
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
@@ -54,21 +66,40 @@
       padding: 60px 0;
     }
 
-    /* Gallery Carousel */
+    /* Gallery Carousel Container */
     .product-gallery-carousel {
       border-radius: 20px;
       overflow: hidden;
       box-shadow: var(--shadow-soft);
       position: relative;
+      /* Memastikan container carousel juga mengikuti tinggi gambar */
+      height: 100%; 
     }
 
+    /* --- PERBAIKAN UTAMA PADA GAMBAR CAROUSEL --- */
     .carousel-item img {
       width: 100%;
-      aspect-ratio: 1/1;
-      object-fit: cover;
-    }
+      /* KUNCI AGAR UKURAN SAMA:
+         Gunakan aspect-ratio. 
+         1/1 = Kotak Sempurna.
+         4/5 = Portrait (Agak tinggi, cocok untuk fashion).
+         Silakan ganti 1/1 menjadi 4/5 jika ingin lebih tinggi.
+      */
+      aspect-ratio: 1 / 1; 
 
-    /* Navigation Arrows for Carousel */
+      /* KUNCI AGAR TIDAK GEPENG:
+         'cover' memastikan gambar mengisi kotak tanpa merusak proporsi,
+         meskipun mungkin ada bagian pinggir yang terpotong (crop).
+      */
+      object-fit: cover;
+      
+      /* Opsional: Mengatur fokus gambar agar tidak terpotong di bagian kepala model */
+      object-position: top center; 
+    }
+    /* ------------------------------------------- */
+
+
+    /* Carousel Arrows */
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
         background-color: rgba(0,0,0,0.3);
@@ -93,14 +124,15 @@
 
     .product-title {
       font-family: var(--heading-font);
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       color: var(--primary-color);
       margin-bottom: 1rem;
+      line-height: 1.2;
     }
 
     .product-description {
       color: #555;
-      line-height: 1.8;
+      line-height: 1.6;
       font-size: 1rem;
       margin-bottom: 2rem;
     }
@@ -116,8 +148,9 @@
       font-weight: 600;
       color: #333;
       background-color: transparent;
-      padding: 1.2rem 0;
+      padding: 1rem 0;
       box-shadow: none !important;
+      font-size: 0.95rem;
     }
 
     .accordion-button:not(.collapsed) {
@@ -128,7 +161,8 @@
     .accordion-body {
         color: #666;
         padding-top: 0;
-        padding-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        font-size: 0.9rem;
     }
 
     .accordion-body ul {
@@ -137,7 +171,7 @@
     }
     
     .accordion-body li {
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.3rem;
     }
 
     /* Action Buttons */
@@ -203,7 +237,9 @@
       background-color: var(--secondary-color);
       color: var(--white);
       padding: 40px 0 30px;
-      margin-top: 60px;
+      margin-top: auto;
+      width: 100%;
+      text-align: center;
     }
     .social-icons a {
       color: rgba(255, 255, 255, 0.9);
@@ -211,47 +247,102 @@
       font-size: 1.3rem;
     }
 
-    /* --- Mobile Nav --- */
+    /* --- Mobile Nav (Fixed Bottom) --- */
     .bottom-nav {
-      position: fixed; bottom: 0; left: 0; right: 0;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
       background-color: #ffffff;
-      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-      display: flex; justify-content: space-around;
-      padding: 10px 0; z-index: 1000;
-      border-top-left-radius: 20px; border-top-right-radius: 20px;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      z-index: 1000;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
     }
-    .bottom-nav-item {
-      display: flex; flex-direction: column; align-items: center;
-      text-decoration: none; color: var(--secondary-color);
-      flex: 1; font-size: 0.75rem;
-    }
-    .bottom-nav-item i { font-size: 1.2rem; margin-bottom: 4px; }
-    .bottom-nav-item.active { color: var(--primary-color); font-weight: 600; }
 
-    /* Responsive */
+    .bottom-nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: #999;
+      flex: 1;
+      font-size: 0.7rem;
+    }
+
+    .bottom-nav-item i {
+      font-size: 1.3rem;
+      margin-bottom: 4px;
+    }
+    
+    .bottom-nav-item span { font-weight: 500; }
+
+    .bottom-nav-item.active {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+    
+    .bottom-nav-item.active i { transform: translateY(-2px); }
+
+    /* --- RESPONSIVE MEDIA QUERIES --- */
     @media (min-width: 768px) {
       .bottom-nav { display: none; }
-      body { padding-bottom: 0; }
     }
+
     @media (max-width: 767px) {
       .navbar-top { display: none; }
-      .product-info { padding-left: 0; margin-top: 30px; }
-      .product-title { font-size: 2rem; }
-      .action-buttons { flex-direction: column; }
+      
+      .product-detail-section { padding: 20px 0 40px; }
+      
+      /* PERBAIKAN DI SINI:
+         Saya menghapus aturan khusus mobile untuk gambar.
+         Sekarang mobile akan mengikuti aturan utama (aspect-ratio 1:1)
+         sehingga ukurannya selalu sama.
+      */
+
+      .product-info { 
+          padding-left: 0; 
+          margin-top: 20px; 
+      }
+      
+      .product-title { 
+          font-size: 1.6rem; 
+          margin-bottom: 0.5rem;
+      }
+      
+      .product-description { 
+          font-size: 0.9rem; 
+          margin-bottom: 1.5rem;
+      }
+      
+      .action-buttons { 
+          flex-direction: column; 
+          gap: 10px;
+      }
+      
+      .btn-action {
+          width: 100%;
+          padding: 14px;
+          margin: 0;
+      }
+      
+      footer {
+          padding-bottom: 90px !important; 
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <nav class="navbar navbar-expand-lg fixed-top navbar-top">
+  <nav class="navbar navbar-expand-lg fixed-top navbar-top d-none d-md-block">
     <div class="container">
       <a class="navbar-brand" href="home.html">
         <img src="Gambar/1233.png" alt="Logo NDA" height="40" />
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
@@ -265,11 +356,11 @@
 
   <main class="container">
     <section class="product-detail-section">
-      <div class="mb-4" data-aos="fade-down">
+      <div class="mb-3" data-aos="fade-down">
          <a href="katalog.html" class="btn-back-link"><i class="fas fa-arrow-left me-2"></i> Kembali ke Katalog</a>
       </div>
 
-      <div class="row g-5">
+      <div class="row g-4">
         
         <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
           <div id="productGallery" class="carousel slide product-gallery-carousel" data-bs-ride="carousel">
@@ -289,11 +380,9 @@
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#productGallery" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#productGallery" data-bs-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
             </button>
           </div>
         </div>
@@ -305,8 +394,7 @@
             
             <p class="product-description">
               Ingin tampil kekinian dengan hijab yang nyaman? Pashmina kaos/cotton rayon kami adalah pilihan yang tepat!
-              Bahannya yang ringan dan lembut cocok untuk aktivitas sehari-hari. Padukan dengan outfit kesayanganmu dan
-              dapatkan tampilan yang fresh dan tetap nyaman.
+              Bahannya yang ringan dan lembut cocok untuk aktivitas sehari-hari.
             </p>
 
             <div class="accordion" id="productDetailsAccordion">
@@ -339,14 +427,13 @@
                     <strong>Waktu Operasional Toko:</strong>
                     <ul>
                       <li>Senin - Sabtu, 09.00 - 19.00 WIB.</li>
-                      <li>Order di bawah jam 17.00 akan dikirim di hari yang sama.</li>
+                      <li>Order di bawah jam 17.00 dikirim hari yang sama.</li>
                     </ul>
                     <br>
                     <strong>Catatan Penting:</strong>
                     <ul>
-                      <li>Warna produk tidak 100% sama dikarenakan faktor cahaya.</li>
-                      <li>Toleransi ukuran 2-5 cm.</li>
-                      <li><strong>Wajib video unboxing</strong> untuk klaim retur/refund.</li>
+                      <li>Warna tidak 100% sama karena cahaya.</li>
+                      <li>Wajib video unboxing untuk klaim retur.</li>
                     </ul>
                   </div>
                 </div>
@@ -394,7 +481,7 @@
     AOS.init({
       once: true,
       duration: 800,
-      offset: 100
+      offset: 50
     });
   </script>
 </body>

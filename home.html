@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Beranda - NDA Fashion Hijab</title>
   <link rel="website icon" href="Gambar/1233.png">
 
@@ -12,9 +12,7 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -32,11 +30,12 @@
       background-color: var(--white);
       color: #444;
       font-family: var(--body-font);
-      padding-bottom: 80px;
+      padding-bottom: 70px; 
       overflow-x: hidden;
+      margin: 0;
     }
 
-    /* --- Navbar Styling --- */
+    /* --- Navbar Styling (Desktop) --- */
     .navbar-top {
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
@@ -60,15 +59,17 @@
       font-weight: 600;
     }
 
-    /* --- Hero Section (Hanya Gambar) --- */
+    /* --- Hero Section --- */
     .hero-section {
       position: relative;
-      height: 90vh;
-      /* Tinggi penuh minus navbar */
+      width: 100%;
+      /* Default Desktop Height */
+      height: 90vh; 
       min-height: 500px;
       overflow: hidden;
       background-color: #f0f0f0;
-      /* Placeholder color */
+      margin: 0;
+      padding: 0;
     }
 
     .hero-bg-img {
@@ -76,26 +77,29 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
-      /* Tidak ada filter gelap agar gambar cerah */
+      display: block;
     }
 
     /* --- Buttons --- */
-    .btn-cta {
-      background-color: var(--primary-color);
-      color: white;
+    .btn-cta, .btn-cta-outline {
       padding: 12px 35px;
       border-radius: 50px;
       font-weight: 600;
-      border: 2px solid var(--primary-color);
-      transition: all 0.3s ease;
       text-decoration: none;
       display: inline-block;
+      transition: all 0.3s ease;
+    }
+
+    .btn-cta {
+      background-color: var(--primary-color);
+      color: white;
+      border: 2px solid var(--primary-color);
     }
 
     .btn-cta:hover {
       background-color: transparent;
-      border-color: white;
-      color: white;
+      border-color: var(--primary-color);
+      color: var(--primary-color);
       transform: translateY(-3px);
     }
 
@@ -103,12 +107,6 @@
       background: transparent;
       color: var(--primary-color);
       border: 2px solid var(--primary-color);
-      padding: 12px 35px;
-      border-radius: 50px;
-      font-weight: 600;
-      transition: all 0.3s;
-      text-decoration: none;
-      display: inline-block;
     }
 
     .btn-cta-outline:hover {
@@ -128,7 +126,7 @@
       font-size: 2.5rem;
       margin-bottom: 50px;
       padding: 0 15px;
-      /* Mencegah teks mepet pinggir di HP */
+      line-height: 1.3;
     }
 
     /* --- Video Section --- */
@@ -144,6 +142,7 @@
       max-width: 900px;
       margin: 0 auto;
       aspect-ratio: 16/9;
+      width: 100%;
     }
 
     .video-wrapper video {
@@ -156,20 +155,36 @@
     .carousel-item img {
       border-radius: 15px;
       object-fit: cover;
+      width: 100%;
+      /* Default Desktop Height limit */
+      max-height: 600px; 
     }
 
-    /* Efek Kaca untuk Caption Carousel Keunggulan */
+    /* Keterangan di Atas Gambar (Glassmorphism) */
     .glass-caption {
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(5px);
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(8px);
       border-radius: 15px;
-      padding: 20px;
-      bottom: 30px;
-      max-width: 80%;
-      margin: 0 auto;
-      left: 0;
-      right: 0;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 15px;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 85%;
+      max-width: 600px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      text-align: center;
+    }
+
+    .glass-caption h5 {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+        font-weight: 700;
+    }
+    
+    .glass-caption p {
+        font-size: 0.9rem;
+        margin-bottom: 0;
+        line-height: 1.4;
     }
 
     /* --- About Snippet --- */
@@ -183,59 +198,47 @@
     /* --- Testimonials --- */
     .testimonial-img-wrapper {
       background: white;
-      padding: 10px;
+      padding: 8px;
       border-radius: 15px;
       box-shadow: var(--shadow-soft);
       transition: transform 0.3s;
     }
 
-    .testimonial-img-wrapper:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-hover);
-    }
-
     .testimonial-screenshot-img {
       width: 100%;
       border-radius: 10px;
+      display: block;
     }
 
-    /* --- Footer (Blue) --- */
+    /* --- Footer --- */
     footer {
       background-color: var(--secondary-color);
       color: var(--white);
-      padding: 40px 0 30px;
+      padding: 40px 0 90px;
       margin-top: 0;
     }
 
     .social-icons a {
       color: rgba(255, 255, 255, 0.9);
-      margin: 0 10px;
-      font-size: 1.3rem;
-      transition: all 0.3s;
+      margin: 0 12px;
+      font-size: 1.4rem;
       display: inline-block;
     }
 
-    .social-icons a:hover {
-      color: white;
-      transform: translateY(-3px);
-    }
-
-    footer p.small {
-      opacity: 0.8;
-    }
-
-    /* --- Mobile Nav --- */
+    /* --- Mobile Nav (Fixed Bottom) --- */
     .bottom-nav {
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
+      width: 100%;
       background-color: #ffffff;
-      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
       display: flex;
       justify-content: space-around;
-      padding: 10px 0;
-      z-index: 1000;
+      align-items: center;
+      padding: 12px 0;
+      z-index: 9999;
       border-top-left-radius: 20px;
       border-top-right-radius: 20px;
     }
@@ -245,81 +248,77 @@
       flex-direction: column;
       align-items: center;
       text-decoration: none;
-      color: var(--secondary-color);
+      color: #999;
       flex: 1;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
+      transition: all 0.2s ease;
     }
 
     .bottom-nav-item i {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       margin-bottom: 4px;
-      transition: 0.3s;
+      transition: 0.2s;
+    }
+
+    .bottom-nav-item span {
+        font-weight: 500;
     }
 
     .bottom-nav-item.active {
       color: var(--primary-color);
-      font-weight: 600;
     }
 
     .bottom-nav-item.active i {
-      transform: translateY(-3px);
+      transform: translateY(-2px);
     }
 
-    /* Responsive */
+    /* --- RESPONSIVE MEDIA QUERIES (Mobile Fixes) --- */
     @media (min-width: 768px) {
-      .bottom-nav {
-        display: none;
-      }
-
-      body {
-        padding-bottom: 0;
-      }
+      .bottom-nav { display: none; }
+      body { padding-bottom: 0; }
+      footer { padding-bottom: 30px; }
     }
 
     @media (max-width: 767px) {
-      .navbar-top {
-        display: none;
+      .navbar-top { display: none !important; }
+      .section-padding { padding: 50px 0; }
+      .section-title { font-size: 1.8rem; margin-bottom: 30px; }
+
+      /* --- PERBAIKAN GAMBAR TERLALU ZOOM DI SINI --- */
+      
+      /* 1. Hero Section: Jangan paksa tinggi layar penuh */
+      .hero-section { 
+        height: auto; /* Biarkan tinggi menyesuaikan gambar */
+        min-height: auto; /* Reset min-height */
+      }
+      
+      .hero-bg-img {
+          height: auto; /* Pastikan gambar tidak gepeng */
+          /* object-fit: cover; tidak diperlukan jika height auto */
       }
 
-      .hero-section {
-        height: 100dvh;
+      /* 2. Carousel Images: Hapus paksaan aspect ratio */
+      .carousel-item img {
+          aspect-ratio: auto; /* Reset rasio */
+          height: auto; /* Biarkan tinggi alami menyesuaikan lebar HP */
+          max-height: none; /* Hapus batasan tinggi desktop */
       }
+      /* ---------------------------------------------- */
 
-      .glass-caption {
-        width: 90%;
-        padding: 15px;
-        bottom: 20px;
-      }
-
-      .glass-caption h5 {
-        font-size: 1rem;
-      }
-
-      .glass-caption p {
-        font-size: 0.8rem;
-      }
-
-      .section-padding {
-        padding: 50px 0;
-      }
-
-      .section-title {
-        font-size: 1.8rem;
-      }
+      .col-lg-7 { text-align: center; margin-top: 20px; }
+      .btn-cta, .btn-cta-outline { width: 80%; padding: 10px 0; }
+      .testimonial-img-wrapper { max-width: 90%; margin: 0 auto; }
     }
   </style>
 </head>
 
 <body>
 
-  <nav class="navbar navbar-expand-lg fixed-top navbar-top">
+  <nav class="navbar navbar-expand-lg fixed-top navbar-top d-none d-md-block">
     <div class="container">
       <a class="navbar-brand" href="home.html">
         <img src="Gambar/1233.png" alt="Logo NDA" height="40" />
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link active" href="home.html">Home</a></li>
@@ -332,51 +331,51 @@
   </nav>
 
   <header class="hero-section">
-    <img src="Gambar/welcome.jpg" class="hero-bg-img" alt="Background NDA">
+      <img src="Gambar/welcome.jpg" class="hero-bg-img" alt="Background NDA">
   </header>
 
   <section class="section-padding video-section">
     <div class="container text-center">
-      <h2 class="section-title" data-aos="fade-up">Intip Koleksi Kami</h2>
-      <div class="video-wrapper" data-aos="zoom-in" data-aos-delay="100">
-        <video autoplay loop playsinline muted>
-          <source src="Gambar/video3.mp4" type="video/mp4">
-          Browser Anda tidak mendukung video.
-        </video>
-      </div>
+        <h2 class="section-title" data-aos="fade-up">Intip Koleksi Kami</h2>
+        <div class="video-wrapper" data-aos="zoom-in" data-aos-delay="100">
+             <video autoplay loop playsinline muted>
+                 <source src="Gambar/video3.mp4" type="video/mp4">
+                 Browser Anda tidak mendukung video.
+             </video>
+        </div>
     </div>
   </section>
 
   <section class="section-padding">
     <div class="container">
-      <h2 class="section-title" data-aos="fade-up">Produk Unggulan</h2>
+       <h2 class="section-title" data-aos="fade-up">Produk Unggulan</h2>
+       
+       <div id="productCarousel" class="carousel slide" data-bs-ride="carousel" data-aos="fade-up" data-aos-delay="100">
+           <div class="carousel-inner">
+               <div class="carousel-item active" data-bs-interval="3000">
+                   <img src="Gambar/home1.jpg" class="d-block w-100" alt="Model Hijab">
+               </div>
+               <div class="carousel-item" data-bs-interval="3000">
+                   <img src="Gambar/home2.jpg" class="d-block w-100" alt="Model Pashmina">
+               </div>
+               <div class="carousel-item" data-bs-interval="3000">
+                   <img src="Gambar/home4.jpg" class="d-block w-100" alt="Model Casual">
+               </div>
+               <div class="carousel-item" data-bs-interval="3000">
+                   <img src="Gambar/home3.jpg" class="d-block w-100" alt="Model Paris">
+               </div>
+           </div>
+           <button class="carousel-control-prev d-none d-md-block" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+           </button>
+           <button class="carousel-control-next d-none d-md-block" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+             <span class="carousel-control-next-icon" aria-hidden="true"></span>
+           </button>
+       </div>
 
-      <div id="productCarousel" class="carousel slide" data-bs-ride="carousel" data-aos="fade-up" data-aos-delay="100">
-        <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-interval="3000">
-            <img src="Gambar/home1.jpg" class="d-block w-100" alt="Model Hijab">
-          </div>
-          <div class="carousel-item" data-bs-interval="3000">
-            <img src="Gambar/home2.jpg" class="d-block w-100" alt="Model Pashmina">
-          </div>
-          <div class="carousel-item" data-bs-interval="3000">
-            <img src="Gambar/home4.jpg" class="d-block w-100" alt="Model Casual">
-          </div>
-          <div class="carousel-item" data-bs-interval="3000">
-            <img src="Gambar/home3.jpg" class="d-block w-100" alt="Model Paris">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        </button>
-      </div>
-
-      <div class="text-center mt-5" data-aos="fade-up">
-        <a href="katalog.html" class="btn-cta-outline">Lihat Semua Katalog &rarr;</a>
-      </div>
+       <div class="text-center mt-5" data-aos="fade-up">
+           <a href="katalog.html" class="btn-cta-outline">Lihat Semua Katalog &rarr;</a>
+       </div>
     </div>
   </section>
 
@@ -384,150 +383,136 @@
     <div class="container">
       <div class="row g-5 align-items-center">
         <div class="col-lg-5" data-aos="fade-right">
-          <img src="Gambar/Sela.JPG" class="about-img" alt="Founder NDA">
+            <img src="Gambar/Sela.JPG" class="about-img" alt="Founder NDA">
         </div>
         <div class="col-lg-7" data-aos="fade-left">
-          <h2 class="mb-4" style="font-family: var(--heading-font); color: var(--primary-color);">Cerita di Balik
-            Keindahan</h2>
-          <p class="lead" style="font-size: 1rem; color: #666;">NDA lahir dari keinginan sederhana: menghadirkan hijab
-            yang nyaman dipakai seharian tanpa mengorbankan gaya.</p>
-          <p style="color: #666;">Kami percaya setiap wanita berhak tampil percaya diri dengan balutan busana yang
-            menjaga nilai-nilai kesopanan.</p>
-          <a href="about.html" class="btn-cta-outline mt-3" style="border-radius: 50px;">Baca Selengkapnya</a>
+          <h2 class="mb-3" style="font-family: var(--heading-font); color: var(--primary-color); font-size: 2rem;">Cerita di Balik Keindahan</h2>
+          <p class="lead" style="font-size: 1rem; color: #666;">NDA lahir dari keinginan sederhana: menghadirkan hijab yang nyaman dipakai seharian tanpa mengorbankan gaya.</p>
+          <p style="color: #666;">Kami percaya setiap wanita berhak tampil percaya diri dengan balutan busana yang menjaga nilai-nilai kesopanan.</p>
+          <a href="about.html" class="btn-cta-outline mt-3">Baca Selengkapnya</a>
         </div>
       </div>
     </div>
   </section>
 
   <section class="section-padding">
-    <div class="container">
-      <h2 class="section-title" data-aos="fade-up">Kenapa Memilih NDA?</h2>
+      <div class="container">
+          <h2 class="section-title" data-aos="fade-up">Kenapa Memilih NDA?</h2>
+          
+          <div id="carouselKeunggulan" class="carousel slide" data-bs-ride="carousel" data-aos="zoom-in">
+             <div class="carousel-inner">
+                 
+                 <div class="carousel-item active" data-bs-interval="4000">
+                     <img src="Gambar/Keunggulan/bahan.jpg" class="d-block w-100" alt="Bahan Premium">
+                     <div class="carousel-caption glass-caption d-block">
+                         <h5 class="fw-bold"><i class="fas fa-gem me-2"></i>Bahan Premium</h5>
+                         <p class="mb-0">Terpilih dari material terbaik yang adem dan awet.</p>
+                     </div>
+                 </div>
 
-      <div id="carouselKeunggulan" class="carousel slide" data-bs-ride="carousel" data-aos="zoom-in">
-        <div class="carousel-inner">
+                 <div class="carousel-item" data-bs-interval="4000">
+                     <img src="Gambar/Keunggulan/desain.jpg" class="d-block w-100" alt="Desain Elegan">
+                     <div class="carousel-caption glass-caption d-block">
+                         <h5 class="fw-bold"><i class="fas fa-palette me-2"></i>Desain Elegan</h5>
+                         <p class="mb-0">Sentuhan modern yang stylish untuk setiap kesempatan.</p>
+                     </div>
+                 </div>
 
-          <div class="carousel-item active" data-bs-interval="4000">
-            <img src="Gambar/Keunggulan/bahan.jpg" class="d-block w-100" style="border-radius: 15px;"
-              alt="Bahan Premium">
-            <div class="carousel-caption glass-caption d-block">
-              <h5 class="fw-bold"><i class="fas fa-gem me-2"></i>Bahan Premium</h5>
-              <p class="mb-0">Terpilih dari material terbaik yang adem dan awet.</p>
-            </div>
+                 <div class="carousel-item" data-bs-interval="4000">
+                     <img src="Gambar/Keunggulan/harga.jpg" class="d-block w-100" alt="Harga Terjangkau">
+                     <div class="carousel-caption glass-caption d-block">
+                         <h5 class="fw-bold"><i class="fas fa-tags me-2"></i>Best Value</h5>
+                         <p class="mb-0">Kualitas premium dengan harga yang bersahabat.</p>
+                     </div>
+                 </div>
+                 
+             </div>
+             <button class="carousel-control-prev d-none d-md-block" type="button" data-bs-target="#carouselKeunggulan" data-bs-slide="prev">
+                 <span class="carousel-control-prev-icon"></span>
+             </button>
+             <button class="carousel-control-next d-none d-md-block" type="button" data-bs-target="#carouselKeunggulan" data-bs-slide="next">
+                 <span class="carousel-control-next-icon"></span>
+             </button>
           </div>
-
-          <div class="carousel-item" data-bs-interval="4000">
-            <img src="Gambar/Keunggulan/desain.jpg" class="d-block w-100" style="border-radius: 15px;"
-              alt="Desain Elegan">
-            <div class="carousel-caption glass-caption d-block">
-              <h5 class="fw-bold"><i class="fas fa-palette me-2"></i>Desain Elegan</h5>
-              <p class="mb-0">Sentuhan modern yang stylish untuk setiap kesempatan.</p>
-            </div>
-          </div>
-
-          <div class="carousel-item" data-bs-interval="4000">
-            <img src="Gambar/Keunggulan/harga.jpg" class="d-block w-100" style="border-radius: 15px;"
-              alt="Harga Terjangkau">
-            <div class="carousel-caption glass-caption d-block">
-              <h5 class="fw-bold"><i class="fas fa-tags me-2"></i>Best Value</h5>
-              <p class="mb-0">Kualitas premium dengan harga yang bersahabat.</p>
-            </div>
-          </div>
-
-        </div>
-        <button class="carousel-control-prev d-none d-md-block" type="button" data-bs-target="#carouselKeunggulan"
-          data-bs-slide="prev">
-          <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next d-none d-md-block" type="button" data-bs-target="#carouselKeunggulan"
-          data-bs-slide="next">
-          <span class="carousel-control-next-icon"></span>
-        </button>
       </div>
-    </div>
   </section>
 
   <section class="section-padding" style="background-color: var(--light-bg);">
-    <div class="container">
-      <h2 class="section-title" data-aos="fade-up">Kata mereka yang sudah merasakan kenyamanannya</h2>
+      <div class="container">
+          <h2 class="section-title" data-aos="fade-up">Kata mereka yang sudah merasakan kenyamanannya</h2>
+          
+          <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-aos="fade-up" data-aos-delay="100">
+              <div class="carousel-inner">
+                  
+                  <div class="carousel-item active">
+                      <div class="row justify-content-center">
+                          <div class="col-lg-4 col-md-6 col-10 mx-auto">
+                              <div class="testimonial-img-wrapper">
+                                  <img src="Gambar/Komentar/1.jpg" class="testimonial-screenshot-img" alt="Testimoni 1">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
 
-      <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-aos="fade-up"
-        data-aos-delay="100">
-        <div class="carousel-inner">
+                  <div class="carousel-item">
+                      <div class="row justify-content-center">
+                          <div class="col-lg-4 col-md-6 col-10 mx-auto">
+                              <div class="testimonial-img-wrapper">
+                                  <img src="Gambar/Komentar/2.jpg" class="testimonial-screenshot-img" alt="Testimoni 2">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
 
-          <div class="carousel-item active">
-            <div class="row justify-content-center">
-              <div class="col-lg-4 col-md-6 col-10">
-                <div class="testimonial-img-wrapper">
-                  <img src="Gambar/Komentar/1.jpg" class="testimonial-screenshot-img" alt="Testimoni 1">
-                </div>
+                  <div class="carousel-item">
+                      <div class="row justify-content-center">
+                          <div class="col-lg-4 col-md-6 col-10 mx-auto">
+                              <div class="testimonial-img-wrapper">
+                                  <img src="Gambar/Komentar/3.jpg" class="testimonial-screenshot-img" alt="Testimoni 3">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="carousel-item">
+                      <div class="row justify-content-center">
+                          <div class="col-lg-4 col-md-6 col-10 mx-auto">
+                              <div class="testimonial-img-wrapper">
+                                  <img src="Gambar/Komentar/4.jpg" class="testimonial-screenshot-img" alt="Testimoni 4">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  
+                   <div class="carousel-item">
+                      <div class="row justify-content-center">
+                          <div class="col-lg-4 col-md-6 col-10 mx-auto">
+                              <div class="testimonial-img-wrapper">
+                                  <img src="Gambar/Komentar/5.jpg" class="testimonial-screenshot-img" alt="Testimoni 5">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
               </div>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="row justify-content-center">
-              <div class="col-lg-4 col-md-6 col-10">
-                <div class="testimonial-img-wrapper">
-                  <img src="Gambar/Komentar/2.jpg" class="testimonial-screenshot-img" alt="Testimoni 2">
-                </div>
+              
+              <div class="carousel-indicators" style="bottom: -40px;">
+                  <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" style="background-color: var(--primary-color);"></button>
+                  <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" style="background-color: var(--primary-color);"></button>
+                  <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" style="background-color: var(--primary-color);"></button>
+                  <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="3" style="background-color: var(--primary-color);"></button>
+                   <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="4" style="background-color: var(--primary-color);"></button>
               </div>
-            </div>
           </div>
-
-          <div class="carousel-item">
-            <div class="row justify-content-center">
-              <div class="col-lg-4 col-md-6 col-10">
-                <div class="testimonial-img-wrapper">
-                  <img src="Gambar/Komentar/3.jpg" class="testimonial-screenshot-img" alt="Testimoni 3">
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="row justify-content-center">
-              <div class="col-lg-4 col-md-6 col-10">
-                <div class="testimonial-img-wrapper">
-                  <img src="Gambar/Komentar/4.jpg" class="testimonial-screenshot-img" alt="Testimoni 4">
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="row justify-content-center">
-              <div class="col-lg-4 col-md-6 col-10">
-                <div class="testimonial-img-wrapper">
-                  <img src="Gambar/Komentar/5.jpg" class="testimonial-screenshot-img" alt="Testimoni 5">
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="carousel-indicators" style="bottom: -40px;">
-          <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active"
-            style="background-color: var(--primary-color);"></button>
-          <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"
-            style="background-color: var(--primary-color);"></button>
-          <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"
-            style="background-color: var(--primary-color);"></button>
-          <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="3"
-            style="background-color: var(--primary-color);"></button>
-          <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="4"
-            style="background-color: var(--primary-color);"></button>
-        </div>
       </div>
-    </div>
   </section>
 
   <section class="section-padding text-center">
-    <div class="container" data-aos="zoom-in">
-      <h2 style="font-family: var(--heading-font); color: var(--primary-color);">Siap Tampil Mempesona?</h2>
-      <p class="lead mb-4" style="color: #666;">Jangan lewatkan koleksi terbaru dan promo menarik dari kami.</p>
-      <a href="contact.html" class="btn-cta">Hubungi Kami</a>
-    </div>
+      <div class="container" data-aos="zoom-in">
+          <h2 class="section-title mb-3" style="margin-bottom: 20px;">Siap Tampil Mempesona?</h2>
+          <p class="lead mb-4" style="color: #666; font-size: 1rem;">Jangan lewatkan koleksi terbaru dan promo menarik dari kami.</p>
+          <a href="contact.html" class="btn-cta">Hubungi Kami</a>
+      </div>
   </section>
 
   <footer class="text-center">
@@ -535,8 +520,7 @@
       <div class="social-icons mb-3">
         <a href="https://www.instagram.com/nda.official.store/" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://shopee.co.id/nda.onlinestore" target="_blank"><i class="fas fa-store"></i></a>
-        <a href="https://www.tiktok.com/@nda.official.store?_t=ZS-8zT46ku2l0L&_r=1" target="_blank"><i
-            class="fab fa-tiktok"></i></a>
+        <a href="https://www.tiktok.com/@nda.official.store?_t=ZS-8zT46ku2l0L&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
         <a href="https://wa.me/628568636423" target="_blank"><i class="fab fa-whatsapp"></i></a>
       </div>
       <p class="small mb-0">© 2025 NDA Fashion Hijab. All Rights Reserved.</p>
@@ -556,9 +540,8 @@
     AOS.init({
       once: true,
       duration: 800,
-      offset: 100
+      offset: 50
     });
   </script>
 </body>
-
 </html>
