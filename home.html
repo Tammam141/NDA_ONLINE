@@ -148,8 +148,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      /* Mematikan interaksi mouse agar murni video saja */
-      pointer-events: none; 
+      pointer-events: none; /* Video tidak bisa diklik */
     }
 
     /* --- Product Carousel / Slider --- */
@@ -284,12 +283,12 @@
       /* --- PERBAIKAN ZOOM GAMBAR --- */
       /* Agar gambar tidak ter-zoom/terpotong di HP */
       .hero-section {
-          height: auto !important; /* Tinggi menyesuaikan gambar */
+          height: auto !important; /* Tinggi bebas mengikuti gambar */
           min-height: auto !important;
       }
       .hero-bg-img {
-          width: 100% !important;
-          height: auto !important; /* Menjaga proporsi asli */
+          width: 100% !important; /* Lebar mentok layar HP */
+          height: auto !important; /* Tinggi menyesuaikan lebar */
           object-fit: contain !important; 
       }
       /* ----------------------------- */
@@ -338,7 +337,6 @@
                  Browser Anda tidak mendukung video.
              </video>
         </div>
-        <p class="small text-muted mt-2 d-md-none" style="font-size: 0.7rem;">*Video akan berputar otomatis saat layar disentuh</p>
     </div>
   </section>
 
@@ -524,31 +522,30 @@
       offset: 50
     });
 
-    // --- SCRIPT AGAR VIDEO BERPUTAR DENGAN SUARA ---
-    // Strategi: 
-    // Browser melarang auto-play bersuara. 
-    // Kita tunggu user menyentuh/scroll layar, lalu paksa video berputar.
+    // --- SCRIPT KHUSUS VIDEO (Tanpa Teks Peringatan) ---
+    // Script ini akan mencoba memutar video.
+    // Jika diblokir browser, dia akan menunggu sentuhan user tanpa menampilkan teks apa-apa.
     document.addEventListener('DOMContentLoaded', function() {
         var video = document.getElementById('promoVideo');
 
         function startVideo() {
             video.play()
             .then(() => {
-                // Jika berhasil diputar, hapus pendeteksi sentuhan
+                // Video berhasil diputar
                 document.removeEventListener('click', startVideo);
                 document.removeEventListener('touchstart', startVideo);
                 document.removeEventListener('scroll', startVideo);
             })
             .catch(err => {
-                // Gagal (biasanya karena belum ada interaksi user), biarkan event listener aktif
-                console.log("Menunggu interaksi user...");
+                // Gagal (biasanya karena belum ada interaksi user),
+                // diam saja menunggu user scroll/sentuh layar.
             });
         }
 
-        // Coba putar sekali saat load (kemungkinan besar gagal kalau belum disentuh)
+        // Coba putar langsung saat load
         startVideo();
 
-        // Pasang pendeteksi interaksi di seluruh layar
+        // Siapkan trigger saat user menyentuh layar
         document.addEventListener('click', startVideo);
         document.addEventListener('touchstart', startVideo);
         document.addEventListener('scroll', startVideo);
