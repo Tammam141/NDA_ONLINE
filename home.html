@@ -59,13 +59,11 @@
       font-weight: 600;
     }
 
-    /* --- Hero Section --- */
+    /* --- Hero Section (Welcome Image) --- */
     .hero-section {
       position: relative;
       width: 100%;
-      /* Default Desktop Height */
-      height: 90vh; 
-      min-height: 500px;
+      height: 100vh; /* Default Desktop: Full Screen */
       overflow: hidden;
       background-color: #f0f0f0;
       margin: 0;
@@ -75,7 +73,7 @@
     .hero-bg-img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: cover; 
       object-position: center;
       display: block;
     }
@@ -143,12 +141,15 @@
       margin: 0 auto;
       aspect-ratio: 16/9;
       width: 100%;
+      background: #000;
     }
 
     .video-wrapper video {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      /* Mematikan interaksi mouse agar murni video saja */
+      pointer-events: none; 
     }
 
     /* --- Product Carousel / Slider --- */
@@ -156,11 +157,9 @@
       border-radius: 15px;
       object-fit: cover;
       width: 100%;
-      /* Default Desktop Height limit */
       max-height: 600px; 
     }
 
-    /* Keterangan di Atas Gambar (Glassmorphism) */
     .glass-caption {
       background: rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(8px);
@@ -179,15 +178,16 @@
         font-size: 1.2rem;
         margin-bottom: 5px;
         font-weight: 700;
+        color: #fff;
     }
     
     .glass-caption p {
         font-size: 0.9rem;
         margin-bottom: 0;
         line-height: 1.4;
+        color: #ddd;
     }
 
-    /* --- About Snippet --- */
     .about-img {
       border-radius: 20px;
       box-shadow: var(--shadow-soft);
@@ -195,7 +195,6 @@
       object-fit: cover;
     }
 
-    /* --- Testimonials --- */
     .testimonial-img-wrapper {
       background: white;
       padding: 8px;
@@ -210,7 +209,6 @@
       display: block;
     }
 
-    /* --- Footer --- */
     footer {
       background-color: var(--secondary-color);
       color: var(--white);
@@ -225,7 +223,6 @@
       display: inline-block;
     }
 
-    /* --- Mobile Nav (Fixed Bottom) --- */
     .bottom-nav {
       position: fixed;
       bottom: 0;
@@ -272,7 +269,7 @@
       transform: translateY(-2px);
     }
 
-    /* --- RESPONSIVE MEDIA QUERIES (Mobile Fixes) --- */
+    /* --- RESPONSIVE MEDIA QUERIES --- */
     @media (min-width: 768px) {
       .bottom-nav { display: none; }
       body { padding-bottom: 0; }
@@ -284,26 +281,24 @@
       .section-padding { padding: 50px 0; }
       .section-title { font-size: 1.8rem; margin-bottom: 30px; }
 
-      /* --- PERBAIKAN GAMBAR TERLALU ZOOM DI SINI --- */
-      
-      /* 1. Hero Section: Jangan paksa tinggi layar penuh */
-      .hero-section { 
-        height: auto; /* Biarkan tinggi menyesuaikan gambar */
-        min-height: auto; /* Reset min-height */
+      /* --- PERBAIKAN ZOOM GAMBAR --- */
+      /* Agar gambar tidak ter-zoom/terpotong di HP */
+      .hero-section {
+          height: auto !important; /* Tinggi menyesuaikan gambar */
+          min-height: auto !important;
       }
-      
       .hero-bg-img {
-          height: auto; /* Pastikan gambar tidak gepeng */
-          /* object-fit: cover; tidak diperlukan jika height auto */
+          width: 100% !important;
+          height: auto !important; /* Menjaga proporsi asli */
+          object-fit: contain !important; 
       }
+      /* ----------------------------- */
 
-      /* 2. Carousel Images: Hapus paksaan aspect ratio */
       .carousel-item img {
-          aspect-ratio: auto; /* Reset rasio */
-          height: auto; /* Biarkan tinggi alami menyesuaikan lebar HP */
-          max-height: none; /* Hapus batasan tinggi desktop */
+          aspect-ratio: auto;
+          height: auto; 
+          max-height: none; 
       }
-      /* ---------------------------------------------- */
 
       .col-lg-7 { text-align: center; margin-top: 20px; }
       .btn-cta, .btn-cta-outline { width: 80%; padding: 10px 0; }
@@ -338,18 +333,18 @@
     <div class="container text-center">
         <h2 class="section-title" data-aos="fade-up">Intip Koleksi Kami</h2>
         <div class="video-wrapper" data-aos="zoom-in" data-aos-delay="100">
-             <video autoplay loop playsinline muted>
+             <video id="promoVideo" loop playsinline>
                  <source src="Gambar/video3.mp4" type="video/mp4">
                  Browser Anda tidak mendukung video.
              </video>
         </div>
+        <p class="small text-muted mt-2 d-md-none" style="font-size: 0.7rem;">*Video akan berputar otomatis saat layar disentuh</p>
     </div>
   </section>
 
   <section class="section-padding">
     <div class="container">
        <h2 class="section-title" data-aos="fade-up">Produk Unggulan</h2>
-       
        <div id="productCarousel" class="carousel slide" data-bs-ride="carousel" data-aos="fade-up" data-aos-delay="100">
            <div class="carousel-inner">
                <div class="carousel-item active" data-bs-interval="3000">
@@ -372,7 +367,6 @@
              <span class="carousel-control-next-icon" aria-hidden="true"></span>
            </button>
        </div>
-
        <div class="text-center mt-5" data-aos="fade-up">
            <a href="katalog.html" class="btn-cta-outline">Lihat Semua Katalog &rarr;</a>
        </div>
@@ -398,10 +392,8 @@
   <section class="section-padding">
       <div class="container">
           <h2 class="section-title" data-aos="fade-up">Kenapa Memilih NDA?</h2>
-          
           <div id="carouselKeunggulan" class="carousel slide" data-bs-ride="carousel" data-aos="zoom-in">
              <div class="carousel-inner">
-                 
                  <div class="carousel-item active" data-bs-interval="4000">
                      <img src="Gambar/Keunggulan/bahan.jpg" class="d-block w-100" alt="Bahan Premium">
                      <div class="carousel-caption glass-caption d-block">
@@ -409,7 +401,6 @@
                          <p class="mb-0">Terpilih dari material terbaik yang adem dan awet.</p>
                      </div>
                  </div>
-
                  <div class="carousel-item" data-bs-interval="4000">
                      <img src="Gambar/Keunggulan/desain.jpg" class="d-block w-100" alt="Desain Elegan">
                      <div class="carousel-caption glass-caption d-block">
@@ -417,7 +408,6 @@
                          <p class="mb-0">Sentuhan modern yang stylish untuk setiap kesempatan.</p>
                      </div>
                  </div>
-
                  <div class="carousel-item" data-bs-interval="4000">
                      <img src="Gambar/Keunggulan/harga.jpg" class="d-block w-100" alt="Harga Terjangkau">
                      <div class="carousel-caption glass-caption d-block">
@@ -425,7 +415,6 @@
                          <p class="mb-0">Kualitas premium dengan harga yang bersahabat.</p>
                      </div>
                  </div>
-                 
              </div>
              <button class="carousel-control-prev d-none d-md-block" type="button" data-bs-target="#carouselKeunggulan" data-bs-slide="prev">
                  <span class="carousel-control-prev-icon"></span>
@@ -440,10 +429,8 @@
   <section class="section-padding" style="background-color: var(--light-bg);">
       <div class="container">
           <h2 class="section-title" data-aos="fade-up">Kata mereka yang sudah merasakan kenyamanannya</h2>
-          
           <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-aos="fade-up" data-aos-delay="100">
               <div class="carousel-inner">
-                  
                   <div class="carousel-item active">
                       <div class="row justify-content-center">
                           <div class="col-lg-4 col-md-6 col-10 mx-auto">
@@ -453,8 +440,7 @@
                           </div>
                       </div>
                   </div>
-
-                  <div class="carousel-item">
+                   <div class="carousel-item">
                       <div class="row justify-content-center">
                           <div class="col-lg-4 col-md-6 col-10 mx-auto">
                               <div class="testimonial-img-wrapper">
@@ -463,7 +449,6 @@
                           </div>
                       </div>
                   </div>
-
                   <div class="carousel-item">
                       <div class="row justify-content-center">
                           <div class="col-lg-4 col-md-6 col-10 mx-auto">
@@ -473,7 +458,6 @@
                           </div>
                       </div>
                   </div>
-
                   <div class="carousel-item">
                       <div class="row justify-content-center">
                           <div class="col-lg-4 col-md-6 col-10 mx-auto">
@@ -483,7 +467,6 @@
                           </div>
                       </div>
                   </div>
-                  
                    <div class="carousel-item">
                       <div class="row justify-content-center">
                           <div class="col-lg-4 col-md-6 col-10 mx-auto">
@@ -493,9 +476,7 @@
                           </div>
                       </div>
                   </div>
-
               </div>
-              
               <div class="carousel-indicators" style="bottom: -40px;">
                   <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" style="background-color: var(--primary-color);"></button>
                   <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" style="background-color: var(--primary-color);"></button>
@@ -541,6 +522,36 @@
       once: true,
       duration: 800,
       offset: 50
+    });
+
+    // --- SCRIPT AGAR VIDEO BERPUTAR DENGAN SUARA ---
+    // Strategi: 
+    // Browser melarang auto-play bersuara. 
+    // Kita tunggu user menyentuh/scroll layar, lalu paksa video berputar.
+    document.addEventListener('DOMContentLoaded', function() {
+        var video = document.getElementById('promoVideo');
+
+        function startVideo() {
+            video.play()
+            .then(() => {
+                // Jika berhasil diputar, hapus pendeteksi sentuhan
+                document.removeEventListener('click', startVideo);
+                document.removeEventListener('touchstart', startVideo);
+                document.removeEventListener('scroll', startVideo);
+            })
+            .catch(err => {
+                // Gagal (biasanya karena belum ada interaksi user), biarkan event listener aktif
+                console.log("Menunggu interaksi user...");
+            });
+        }
+
+        // Coba putar sekali saat load (kemungkinan besar gagal kalau belum disentuh)
+        startVideo();
+
+        // Pasang pendeteksi interaksi di seluruh layar
+        document.addEventListener('click', startVideo);
+        document.addEventListener('touchstart', startVideo);
+        document.addEventListener('scroll', startVideo);
     });
   </script>
 </body>

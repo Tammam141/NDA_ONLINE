@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Link NDA Fashion Hijab</title>
   <link rel="website icon" href="Gambar/1233.png">
   
@@ -25,103 +25,126 @@
 
     * { box-sizing: border-box; }
 
+    /* Tambahan: Reset HTML agar benar-benar full screen */
+    html {
+      height: 100%;
+      overflow: hidden; /* Mencegah scroll pada level HTML */
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      /* Background Image Full Screen */
-      background: url('Gambar/landing.jpg') no-repeat center center fixed;
+      /* Background Image */
+      background: url('Gambar/landing.jpg') no-repeat center center;
       background-size: cover;
-      min-height: 100vh;
+      
+      /* KUNCI AGAR TIDAK BISA DIGESER: */
+      height: 100vh; /* Tinggi pas 1 layar */
+      width: 100vw;  /* Lebar pas 1 layar */
+      overflow: hidden; /* Menyembunyikan scrollbar dan mematikan scroll */
+      position: fixed; /* Mengunci posisi body */
+      
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       color: var(--dark-text);
+      
+      /* Mencegah efek 'karet' saat ditarik di iPhone */
+      overscroll-behavior: none;
     }
 
-    /* Overlay Gelap/Terang untuk Background agar teks jelas */
     body::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      /* Meningkatkan transparansi overlay body sedikit agar lebih menyatu dengan container */
       background: rgba(93, 124, 169, 0.2); 
       backdrop-filter: blur(3px);
       z-index: -1;
     }
 
-    /* --- Container Utama (Kartu Kaca) --- */
+    /* --- Container Utama --- */
     .bio-container {
       width: 90%;
       max-width: 480px;
       
-      /* --- BAGIAN INI YANG DIUBAH --- */
-      /* Nilai 0.9 diubah menjadi 0.65 agar lebih transparan. 
-         Semakin kecil angkanya, semakin transparan. */
+      /* Agar container tidak terlalu tinggi melebihi layar HP kecil */
+      max-height: 95vh; 
+      
       background: rgba(255, 255, 255, 0.65); 
-      /* ------------------------------- */
-
-      backdrop-filter: blur(15px); /* Meningkatkan blur agar efek kaca lebih kuat */
-      -webkit-backdrop-filter: blur(15px); /* Untuk Safari */
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
       border-radius: 30px;
-      padding: 40px 30px;
+      padding: 30px 25px; /* Padding sedikit diperkecil agar muat */
       text-align: center;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.15); /* Shadow sedikit dilembutkan */
-      margin: 20px 0;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      
+      /* Tidak pakai margin agar centering flexbox bekerja sempurna */
+      margin: 0; 
+      
       position: relative;
       border: 1px solid rgba(255,255,255,0.4);
+      
+      /* Jaga-jaga: Jika layar HP SANGAT kecil, konten dalam kartu bisa discroll 
+         tapi background tetap diam. Jika ingin benar2 mati, ubah auto jadi hidden */
+      overflow-y: auto; 
+      scrollbar-width: none; /* Sembunyikan scrollbar di Firefox */
+    }
+    
+    /* Sembunyikan scrollbar container di Chrome/Safari */
+    .bio-container::-webkit-scrollbar {
+      display: none;
     }
 
     /* --- Profil --- */
     .profile-img {
-      width: 120px;
-      height: 120px;
+      width: 100px; /* Diperkecil sedikit agar hemat tempat */
+      height: 100px;
       border-radius: 50%;
       object-fit: cover;
       border: 4px solid var(--primary-color);
-      margin-bottom: 15px;
+      margin-bottom: 10px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      background-color: rgba(255, 255, 255, 0.8); /* Sedikit transparan di belakang logo */
+      background-color: rgba(255, 255, 255, 0.8);
       padding: 2px;
     }
 
     .brand-name {
       font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       color: var(--primary-color);
-      margin-bottom: 5px;
+      margin-bottom: 2px;
       font-weight: 700;
-      text-shadow: 0 1px 2px rgba(255,255,255,0.5); /* Menambah sedikit shadow agar teks lebih pop-up */
+      text-shadow: 0 1px 2px rgba(255,255,255,0.5);
     }
 
     .tagline {
-      font-size: 0.9rem;
-      color: #555; /* Warna sedikit digelapkan agar terbaca di background transparan */
-      margin-bottom: 30px;
+      font-size: 0.85rem;
+      color: #555;
+      margin-bottom: 20px;
       display: block;
       font-weight: 600;
     }
 
-    /* --- Tombol Link (Styled Buttons) --- */
+    /* --- Tombol Link --- */
     .link-group {
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 12px; /* Jarak antar tombol dirapatkan sedikit */
     }
 
     .bio-btn {
       display: flex;
       align-items: center;
       justify-content: center;
-      /* Tombol juga dibuat sedikit transparan agar serasi */
       background: rgba(255, 255, 255, 0.85); 
       color: var(--primary-color);
       text-decoration: none;
-      padding: 16px 20px;
+      padding: 14px 20px; /* Padding tombol disesuaikan */
       border-radius: 50px;
       font-weight: 600;
-      font-size: 1rem;
+      font-size: 0.95rem;
       border: 2px solid transparent;
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
       transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -129,11 +152,10 @@
       backdrop-filter: blur(5px);
     }
 
-    /* Ikon di kiri tombol */
     .bio-btn i {
       position: absolute;
-      left: 25px;
-      font-size: 1.2rem;
+      left: 20px;
+      font-size: 1.1rem;
     }
 
     .bio-btn:hover {
@@ -144,9 +166,8 @@
       border-color: var(--primary-color);
     }
 
-    /* Tombol Khusus WA */
     .btn-wa {
-      background: rgba(37, 211, 102, 0.15); /* Sedikit lebih transparan */
+      background: rgba(37, 211, 102, 0.15);
       color: #25D366;
       font-weight: 700;
     }
@@ -158,16 +179,16 @@
 
     /* --- Footer Socials --- */
     .social-footer {
-      margin-top: 30px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(93, 124, 169, 0.2); /* Warna border disesuaikan */
+      margin-top: 20px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(93, 124, 169, 0.2);
     }
 
     .social-icons a {
       display: inline-block;
-      color: var(--primary-color); /* Warna ikon diubah agar lebih kontras */
-      font-size: 1.5rem;
-      margin: 0 10px;
+      color: var(--primary-color);
+      font-size: 1.3rem;
+      margin: 0 8px;
       transition: 0.3s;
     }
 
@@ -177,10 +198,11 @@
     }
 
     .copyright {
-      margin-top: 15px;
-      font-size: 0.75rem;
+      margin-top: 10px;
+      font-size: 0.7rem;
       color: #666;
       font-weight: 500;
+      margin-bottom: 0;
     }
 
   </style>
