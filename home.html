@@ -10,6 +10,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -280,18 +281,17 @@
       .section-padding { padding: 50px 0; }
       .section-title { font-size: 1.8rem; margin-bottom: 30px; }
 
-      /* --- PERBAIKAN ZOOM GAMBAR --- */
-      /* Agar gambar tidak ter-zoom/terpotong di HP */
+      /* --- PERBAIKAN ZOOM GAMBAR (AGAR UTUH) --- */
       .hero-section {
-          height: auto !important; /* Tinggi bebas mengikuti gambar */
+          height: auto !important; /* Jangan paksa full screen */
           min-height: auto !important;
       }
       .hero-bg-img {
-          width: 100% !important; /* Lebar mentok layar HP */
-          height: auto !important; /* Tinggi menyesuaikan lebar */
+          width: 100% !important; /* Lebar 100% */
+          height: auto !important; /* Tinggi menyesuaikan */
           object-fit: contain !important; 
       }
-      /* ----------------------------- */
+      /* ------------------------------------------ */
 
       .carousel-item img {
           aspect-ratio: auto;
@@ -332,7 +332,7 @@
     <div class="container text-center">
         <h2 class="section-title" data-aos="fade-up">Intip Koleksi Kami</h2>
         <div class="video-wrapper" data-aos="zoom-in" data-aos-delay="100">
-             <video id="promoVideo" loop playsinline>
+             <video id="promoVideo" loop playsinline autoplay>
                  <source src="Gambar/video3.mp4" type="video/mp4">
                  Browser Anda tidak mendukung video.
              </video>
@@ -522,30 +522,31 @@
       offset: 50
     });
 
-    // --- SCRIPT KHUSUS VIDEO (Tanpa Teks Peringatan) ---
-    // Script ini akan mencoba memutar video.
-    // Jika diblokir browser, dia akan menunggu sentuhan user tanpa menampilkan teks apa-apa.
+    // --- SCRIPT KHUSUS VIDEO UNMUTED ---
+    // Karena Anda TIDAK mau di-mute, video TIDAK AKAN JALAN di HP sampai user menyentuh layar.
+    // Script ini menunggu user menyentuh (click/scroll/touch) lalu memaksa video jalan + bersuara.
     document.addEventListener('DOMContentLoaded', function() {
         var video = document.getElementById('promoVideo');
 
         function startVideo() {
+            // Coba putar (akan bersuara karena tidak ada 'muted' di HTML)
             video.play()
             .then(() => {
-                // Video berhasil diputar
+                // Berhasil putar, lepaskan event listener agar tidak berat
                 document.removeEventListener('click', startVideo);
                 document.removeEventListener('touchstart', startVideo);
                 document.removeEventListener('scroll', startVideo);
             })
             .catch(err => {
-                // Gagal (biasanya karena belum ada interaksi user),
-                // diam saja menunggu user scroll/sentuh layar.
+                // Gagal karena diblokir browser, tunggu interaksi berikutnya
+                // Tidak melakukan apa-apa (diam)
             });
         }
 
-        // Coba putar langsung saat load
+        // Coba putar sekali saat loading (pasti gagal di HP, sukses di sebagian Desktop)
         startVideo();
 
-        // Siapkan trigger saat user menyentuh layar
+        // Pasang trigger: Begitu user menyentuh layar HP, video akan nyala
         document.addEventListener('click', startVideo);
         document.addEventListener('touchstart', startVideo);
         document.addEventListener('scroll', startVideo);
