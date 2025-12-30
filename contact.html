@@ -26,35 +26,23 @@
       --mobile-nav-height: 70px;
     }
 
-    /* --- LAYOUT UTAMA (Solusi Sticky Footer Paling Kuat) --- */
-    html, body {
-      height: 100%; /* Wajib 100% */
-      margin: 0;
-      padding: 0;
-    }
+    /* --- LAYOUT UTAMA --- */
+    html, body { height: 100%; margin: 0; padding: 0; }
 
     body {
       background-color: var(--light-bg);
       font-family: var(--body-font);
       color: #444;
-      /* Menggunakan Flexbox untuk layout vertikal */
       display: flex;
       flex-direction: column;
-      min-height: 100vh; /* Minimal tinggi setinggi layar */
+      min-height: 100vh;
       overflow-x: hidden;
     }
 
-    /* Main Content akan mengisi ruang kosong tersisa */
-    main {
-      flex: 1 0 auto; /* Flex-grow: 1 penting agar footer terdorong ke bawah */
-    }
+    main { flex: 1 0 auto; }
+    footer { flex-shrink: 0; }
 
-    /* Footer tidak boleh menyusut */
-    footer {
-        flex-shrink: 0;
-    }
-
-    /* --- Navbar Styling (Desktop) --- */
+    /* --- Navbar Styling --- */
     .navbar-top {
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
@@ -63,19 +51,13 @@
     }
     
     .nav-link {
-      font-weight: 500;
-      color: #555;
-      margin: 0 5px;
-      transition: all 0.3s;
+      font-weight: 500; color: #555; margin: 0 5px; transition: all 0.3s;
     }
 
-    .nav-link:hover, .nav-link.active {
-      color: var(--primary-color) !important;
-    }
-    
+    .nav-link:hover, .nav-link.active { color: var(--primary-color) !important; }
     .nav-link.active { font-weight: 600; }
 
-    /* --- Header Page (Hubungi Kami) --- */
+    /* --- Header Page --- */
     .page-header {
       background-color: var(--secondary-color);
       padding: 80px 0 100px;
@@ -83,7 +65,7 @@
       color: var(--white);
       border-bottom-left-radius: 40px;
       border-bottom-right-radius: 40px;
-      margin-bottom: -50px; /* Efek overlap */
+      margin-bottom: -50px;
       position: relative;
     }
 
@@ -94,19 +76,11 @@
     }
 
     .page-header p {
-      font-size: 1.1rem;
-      opacity: 0.9;
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 0 20px;
+      font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto; padding: 0 20px;
     }
 
     /* --- Kartu Kontak --- */
-    .contact-container {
-        padding-bottom: 60px;
-        position: relative; 
-        z-index: 2;
-    }
+    .contact-container { padding-bottom: 60px; position: relative; z-index: 2; }
 
     .contact-card {
       background: var(--white);
@@ -120,6 +94,7 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       height: 100%;
       border: 1px solid rgba(0,0,0,0.02);
+      cursor: pointer;
     }
 
     .contact-card:hover {
@@ -129,110 +104,63 @@
     }
 
     .contact-card .icon-wrapper {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      color: var(--primary-color);
-      transition: 0.3s;
+      font-size: 3rem; margin-bottom: 1rem; color: var(--primary-color); transition: 0.3s;
     }
     
-    .contact-card:hover .icon-wrapper {
-        transform: scale(1.1);
-    }
+    .contact-card:hover .icon-wrapper { transform: scale(1.1); }
 
     .contact-card h3 {
-      font-family: var(--heading-font);
-      font-size: 1.4rem;
-      margin-bottom: 0.3rem;
-      color: #333;
+      font-family: var(--heading-font); font-size: 1.4rem; margin-bottom: 0.3rem; color: #333;
     }
 
-    .contact-card p {
-      font-size: 0.95rem;
-      color: #666;
-      margin: 0;
-    }
+    .contact-card p { font-size: 0.95rem; color: #666; margin: 0; }
 
-    /* --- Footer (SAMA PERSIS DENGAN KATALOG FINAL) --- */
+    /* --- Footer --- */
     footer {
       background-color: var(--secondary-color);
       color: var(--white);
-      padding: 50px 0 40px; /* Padding Desktop lebih lega */
-      margin-top: auto; /* Memastikan dia di bawah pada flex container */
+      padding: 50px 0 40px;
+      margin-top: auto;
       text-align: center;
       width: 100%;
-      box-shadow: 0 -5px 20px rgba(0,0,0,0.05); /* Shadow halus ke atas */
+      box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
     }
     
     .social-icons a {
-      color: rgba(255, 255, 255, 1);
-      margin: 0 12px;
-      font-size: 1.5rem;
-      transition: all 0.3s;
-      display: inline-block;
+      color: rgba(255, 255, 255, 1); margin: 0 12px; font-size: 1.5rem; transition: all 0.3s; display: inline-block;
     }
     
-    .social-icons a:hover {
-      color: white;
-      transform: scale(1.2);
-    }
-    
+    .social-icons a:hover { color: white; transform: scale(1.2); }
     footer p.small { opacity: 1; margin-bottom: 0; font-size: 0.9rem; font-weight: 500; margin-top: 15px; }
 
-    /* --- Mobile Nav (Fixed Bottom) --- */
+    /* --- Mobile Nav --- */
     .bottom-nav {
-      position: fixed;
-      bottom: 0; left: 0; right: 0;
+      position: fixed; bottom: 0; left: 0; right: 0;
       background-color: #ffffff;
       box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
-      display: flex;
-      justify-content: space-around;
-      padding: 0;
-      z-index: 9999;
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
-      height: var(--mobile-nav-height); /* 70px */
-      align-items: center;
+      display: flex; justify-content: space-around; padding: 0; z-index: 9999;
+      border-top-left-radius: 20px; border-top-right-radius: 20px;
+      height: var(--mobile-nav-height); align-items: center;
     }
 
     .bottom-nav-item {
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-decoration: none; color: #999;
-      flex: 1; font-size: 0.7rem; height: 100%;
-      transition: 0.2s;
+      text-decoration: none; color: #999; flex: 1; font-size: 0.7rem; height: 100%; transition: 0.2s;
     }
 
-    .bottom-nav-item i {
-      font-size: 1.3rem; margin-bottom: 3px;
-    }
-    
+    .bottom-nav-item i { font-size: 1.3rem; margin-bottom: 3px; }
     .bottom-nav-item span { font-weight: 500; }
-
-    .bottom-nav-item.active {
-      color: var(--primary-color); font-weight: 600;
-    }
-    
+    .bottom-nav-item.active { color: var(--primary-color); font-weight: 600; }
     .bottom-nav-item.active i { transform: translateY(-2px); }
 
     /* --- RESPONSIVE MEDIA QUERIES --- */
-    @media (min-width: 768px) {
-      .bottom-nav { display: none; }
-    }
-    
+    @media (min-width: 768px) { .bottom-nav { display: none; } }
     @media (max-width: 767px) {
-      /* Padding Body SAMA dengan tinggi Nav Bawah */
       body { padding-bottom: var(--mobile-nav-height); }
-
       .navbar-top { display: none !important; }
-      
       .page-header { padding: 40px 0 80px; height: auto; }
       .page-header h1 { font-size: 2.2rem; }
-      
-      /* FOOTER FIX ULTIMATE (SAMA DENGAN KATALOG) */
-      footer {
-          padding-top: 40px;
-          /* Padding bawah besar agar teks naik dan jelas di atas nav */
-          padding-bottom: 100px !important;
-      }
+      footer { padding-top: 40px; padding-bottom: 100px !important; }
     }
   </style>
 </head>
@@ -266,7 +194,7 @@
     <div class="row g-3 justify-content-center">
 
       <div class="col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-delay="100">
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ndajayaselalu@gmail.com" target="_blank" class="contact-card">
+        <a id="emailLink" href="#" target="_blank" class="contact-card">
           <div class="icon-wrapper"><i class="fas fa-envelope-open-text"></i></div>
           <h3>Email</h3>
           <p>ndajayaselalu@gmail.com</p>
@@ -323,6 +251,34 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ once: true, duration: 800 });
+
+    // --- SCRIPT OTOMATISASI EMAIL ---
+    document.addEventListener("DOMContentLoaded", function() {
+        var emailLink = document.getElementById("emailLink");
+        
+        // Data Template
+        var emailTujuan = "ndajayaselalu@gmail.com";
+        var subject = "Tanya Seputar Produk NDA Fashion Hijab";
+        var body = "Halo Admin NDA,\n\nSaya tertarik dengan produk Anda dan ingin bertanya mengenai:\n[Tulis pertanyaan Anda disini]\n\nTerima kasih.";
+
+        // Cek apakah user menggunakan HP (Mobile) atau Laptop (Desktop)
+        var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+        if (isMobile) {
+            // JIKA HP: Gunakan 'mailto' (Membuka Aplikasi Email di HP)
+            // encodeURIComponent agar spasi dan enter terbaca
+            emailLink.href = "mailto:" + emailTujuan + 
+                             "?subject=" + encodeURIComponent(subject) + 
+                             "&body=" + encodeURIComponent(body);
+        } else {
+            // JIKA LAPTOP: Gunakan Link Website Gmail (Membuka Tab Browser)
+            // Agar tidak dipaksa buka Outlook
+            emailLink.href = "https://mail.google.com/mail/?view=cm&fs=1" +
+                             "&to=" + emailTujuan +
+                             "&su=" + encodeURIComponent(subject) +
+                             "&body=" + encodeURIComponent(body);
+        }
+    });
   </script>
 </body>
 </html>
