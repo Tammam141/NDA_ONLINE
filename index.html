@@ -103,15 +103,19 @@
 
     /* --- Profil --- */
     .profile-img {
-      width: 100px; /* Diperkecil sedikit agar hemat tempat */
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid var(--primary-color);
+      width: 120px; /* Saya besarkan sedikit karena bordernya hilang */
+      height: 120px;
+      /* border-radius: 50%;  <-- Hapus ini jika logo Anda bentuknya tidak bulat sempurna */
+      object-fit: contain; /* Ganti cover jadi contain agar logo tidak terpotong */
+      
+      /* MENGHILANGKAN BINGKAI & LATAR BELAKANG */
+      border: none; 
+      background-color: transparent; 
+      padding: 0;
+      
       margin-bottom: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      background-color: rgba(255, 255, 255, 0.8);
-      padding: 2px;
+      /* Opsional: Shadow halus agar logo telihat mengambang (hapus jika mau benar2 flat) */
+      filter: drop-shadow(0 5px 5px rgba(0,0,0,0.2)); 
     }
 
     .brand-name {
