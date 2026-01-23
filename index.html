@@ -29,33 +29,26 @@
 
     * { box-sizing: border-box; }
 
-    /* Tambahan: Reset HTML agar benar-benar full screen */
     html {
       height: 100%;
-      overflow: hidden; /* Mencegah scroll pada level HTML */
+      overflow: hidden;
     }
 
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      /* Background Image */
       background: url('Gambar/landing.jpg') no-repeat center center;
       background-size: cover;
-      
-      /* KUNCI AGAR TIDAK BISA DIGESER: */
-      height: 100vh; /* Tinggi pas 1 layar */
-      width: 100vw;  /* Lebar pas 1 layar */
-      overflow: hidden; /* Menyembunyikan scrollbar dan mematikan scroll */
-      position: fixed; /* Mengunci posisi body */
-      
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+      position: fixed;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       color: var(--dark-text);
-      
-      /* Mencegah efek 'karet' saat ditarik di iPhone */
       overscroll-behavior: none;
     }
 
@@ -68,53 +61,36 @@
       z-index: -1;
     }
 
-    /* --- Container Utama --- */
     .bio-container {
       width: 90%;
       max-width: 480px;
-      
-      /* Agar container tidak terlalu tinggi melebihi layar HP kecil */
       max-height: 95vh; 
-      
       background: rgba(255, 255, 255, 0.65); 
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
       border-radius: 30px;
-      padding: 30px 25px; /* Padding sedikit diperkecil agar muat */
+      padding: 30px 25px;
       text-align: center;
       box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-      
-      /* Tidak pakai margin agar centering flexbox bekerja sempurna */
       margin: 0; 
-      
       position: relative;
       border: 1px solid rgba(255,255,255,0.4);
-      
-      /* Jaga-jaga: Jika layar HP SANGAT kecil, konten dalam kartu bisa discroll 
-         tapi background tetap diam. Jika ingin benar2 mati, ubah auto jadi hidden */
       overflow-y: auto; 
-      scrollbar-width: none; /* Sembunyikan scrollbar di Firefox */
+      scrollbar-width: none;
     }
     
-    /* Sembunyikan scrollbar container di Chrome/Safari */
     .bio-container::-webkit-scrollbar {
       display: none;
     }
 
-    /* --- Profil --- */
     .profile-img {
-      width: 120px; /* Saya besarkan sedikit karena bordernya hilang */
+      width: 120px;
       height: 120px;
-      /* border-radius: 50%;  <-- Hapus ini jika logo Anda bentuknya tidak bulat sempurna */
-      object-fit: contain; /* Ganti cover jadi contain agar logo tidak terpotong */
-      
-      /* MENGHILANGKAN BINGKAI & LATAR BELAKANG */
+      object-fit: contain;
       border: none; 
       background-color: transparent; 
       padding: 0;
-      
       margin-bottom: 10px;
-      /* Opsional: Shadow halus agar logo telihat mengambang (hapus jika mau benar2 flat) */
       filter: drop-shadow(0 5px 5px rgba(0,0,0,0.2)); 
     }
 
@@ -135,11 +111,10 @@
       font-weight: 600;
     }
 
-    /* --- Tombol Link --- */
     .link-group {
       display: flex;
       flex-direction: column;
-      gap: 12px; /* Jarak antar tombol dirapatkan sedikit */
+      gap: 12px;
     }
 
     .bio-btn {
@@ -149,7 +124,7 @@
       background: rgba(255, 255, 255, 0.85); 
       color: var(--primary-color);
       text-decoration: none;
-      padding: 14px 20px; /* Padding tombol disesuaikan */
+      padding: 14px 20px;
       border-radius: 50px;
       font-weight: 600;
       font-size: 0.95rem;
@@ -185,7 +160,6 @@
       border-color: #25D366;
     }
 
-    /* --- Footer Socials --- */
     .social-footer {
       margin-top: 20px;
       padding-top: 15px;
@@ -212,7 +186,6 @@
       font-weight: 500;
       margin-bottom: 0;
     }
-
   </style>
 </head>
 
@@ -249,6 +222,7 @@
     <div class="social-footer">
       <div class="social-icons">
         <a href="https://www.instagram.com/nda.official.store/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/share/1DcVybD8Mk/" target="_blank"><i class="fab fa-facebook"></i></a>
         <a href="https://shopee.co.id/nda.onlinestore" target="_blank"><i class="fas fa-store"></i></a>
         <a href="https://www.tiktok.com/@nda.official.store" target="_blank"><i class="fab fa-tiktok"></i></a>
         <a href="https://wa.me/628568636423" target="_blank"><i class="fab fa-whatsapp"></i></a>
